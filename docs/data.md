@@ -144,6 +144,56 @@ project uses traffic info as its source and keeps this API as a backup.
 - **Time**: stored in UTC, aggregated by hour and day in `Europe/Paris`. A train running after
   midnight belongs to the previous service day.
 
+## Metrics
+
+Computed by `app/analytics/queries.py` from the departures that are over.
+
+- **Punctuality**: number of trains that ran, average and 90th percentile delay, share of
+  trains more than 5 minutes late (exactly 5 minutes is not late), number of cancelled
+  departures and cancellation rate (cancelled / (ran + cancelled)). It can be broken down by
+  branch, direction, station, weekday or weekend, hour and service date.
+- **Branch**: the part of the line the train is heading to, given by its destination
+  station: `cdg`, `mitry`, `robinson`, `saint_remy`, or `trunk` for a train that ends on the
+  central section.
+- **Reliable prediction**: a departure counts in delay figures only if it was still seen in
+  a feed less than 5 minutes before its actual time. Otherwise collection had stopped and the
+  last prediction is too old to stand for what happened. Cancelled departures always count.
+- **Segments**: a train is followed from stop to stop by its train ID. The delay gained on a
+  segment is the delay at the second stop minus the delay at the first, averaged over
+  trains. Consecutive means consecutive stops of that train, so semi-direct trains give
+  longer segments.
+- **Waiting time**: see Definitions. A gap is attributed to the hour in which it starts;
+  gaps over one hour are ignored; the last train of a service day is not linked to the first
+  of the next.
+- **Measurement error**: at the station polled by the unitary feed, the difference between
+  the last prediction of the global feed and the last prediction of the unitary feed, for
+  departures seen in both.
+
+The delay, the service date, the Paris hour and the reliability flag are stored on each
+departure when it is closed, so the queries do not recompute them.
+
+### Query performance
+
+Measured with `uv run python -m scripts.bench_queries --days 30`, which fills a separate
+database with 30 days of invented departures at the expected volume (450,000 rows) and
+reports the median of 7 runs. On a laptop (PostgreSQL 16 in Docker, default settings):
+
+| Query | Time |
+|---|---|
+| Punctuality, 7 days, overall | 28 ms |
+| Punctuality, 7 days, by branch and direction | 49 ms |
+| Punctuality, 7 days, by station | 77 ms |
+| Punctuality, 7 days, one station by hour | 2 ms |
+| Punctuality, 30 days, by day type and hour | 194 ms |
+| Segments, 7 days, one direction | 69 ms |
+| Waiting time, 7 days, one station | 1 ms |
+| Measurement error, 7 days | 1 ms |
+
+Every 7-day query is under the 100 ms target. The 30-day breakdown is not: it reads every
+row and the 90th percentile forces a sort of all of them. Stored columns, a covering index
+and more sort memory were tried and did not bring it under 100 ms. The fix, if long windows
+are needed, is a table of pre-aggregated hourly figures.
+
 ## Polling budget
 
 | API | Schedule | Requests per day | Quota |
@@ -160,7 +210,8 @@ project uses traffic info as its source and keeps this API as a backup.
 - The quota counter must reset at midnight UTC, not at midnight in Paris.
 
 **Expected volume** (estimate, to confirm after one day of collection): about 500 to 600 trains
-a day and 25 stations per train on average, so about 15,000 departure rows a day.
+a day and 25 stations per train on average, so about 15,000 departure rows a day. A first
+run stored 2,708 departures from three consecutive polls, in line with that.
 
 **Precision.** The last prediction for a departure is seen at most about 2 minutes before the
 train leaves, since calls stay in the feed until after their expected time. The unitary feed

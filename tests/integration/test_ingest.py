@@ -126,6 +126,9 @@ class TestIngestSnapshot:
             closed = session.scalars(select(Departure).where(Departure.journey_ref == gone)).all()
         assert Counter(row.outcome for row in closed) == expected
         assert {row.closed_at for row in closed} == {later.produced_at}
+        # Closing fills the analytics fields.
+        assert all(row.service_date is not None and row.local_hour is not None for row in closed)
+        assert all(row.delay_seconds is not None and row.reliable is not None for row in closed)
 
     def test_an_empty_feed_does_not_close_everything(self, sessions: Sessions) -> None:
         first = global_snapshot()
