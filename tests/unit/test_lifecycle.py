@@ -7,10 +7,6 @@ from app.db.models import Departure, Outcome
 from app.ingest.lifecycle import decide_outcome, merge
 from app.prim.models import CallStatus, DepartureObservation, Direction
 
-# Each test class is marked as an expected failure until its function is written. Delete the
-# `@todo` line above a class once you have implemented the function it tests.
-todo = pytest.mark.xfail(raises=NotImplementedError, strict=True, reason="✍️ to implement")
-
 AIMED = datetime(2026, 11, 16, 8, 0, 0, tzinfo=UTC)
 T0 = datetime(2026, 11, 16, 7, 30, 0, tzinfo=UTC)
 
@@ -49,7 +45,6 @@ def seen(*steps: tuple[datetime, DepartureObservation]) -> Departure:
     return departure
 
 
-@todo
 class TestMerge:
     def test_first_observation_creates_an_open_departure(self) -> None:
         departure = merge(None, observation(expected_departure=AIMED + minutes(2)), T0)
@@ -201,7 +196,6 @@ class TestMerge:
         assert departure.closed_at == T0 + minutes(2)
 
 
-@todo
 class TestDecideOutcome:
     """The train is due at 08:00; each test picks a "now" and whether it is still listed."""
 

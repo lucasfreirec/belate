@@ -7,9 +7,6 @@ from redis import Redis
 from app.prim.models import Api
 from app.prim.quota import QuotaExhausted, QuotaGuard, QuotaLimit, TooSoon
 
-# Delete this line once QuotaGuard is implemented.
-pytestmark = pytest.mark.xfail(raises=NotImplementedError, strict=True, reason="✍️ to implement")
-
 NOON = datetime(2026, 11, 16, 12, 0, 0, tzinfo=UTC)
 
 

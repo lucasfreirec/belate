@@ -1,4 +1,4 @@
-"""Departure lifecycle: from repeated observations to one final row per departure.  ✍️ Lucas
+"""Departure lifecycle: from repeated observations to one final row per departure.
 
 The same train at the same station is seen in every poll until it leaves: about 100 times in
 the global feed, plus once a minute in the unitary feed at my station. These two functions
@@ -8,7 +8,7 @@ Both are pure: they take objects and return a result, with no database and no cl
 own. The code that loads and saves rows calls them. The tests are in
 tests/unit/test_lifecycle.py and encode the rules of docs/data.md, "Definitions".
 
-Things worth thinking about before writing the code:
+Three facts shape the rules:
 
 - The two feeds are not equally fresh. A global response can be 2 minutes older than a
   unitary response received just before it, so observations do not always arrive in time
@@ -22,7 +22,7 @@ Things worth thinking about before writing the code:
 from datetime import datetime, timedelta
 
 from app.db.models import Departure, Outcome
-from app.prim.models import DepartureObservation
+from app.prim.models import CallStatus, DepartureObservation
 
 # A departure still listed this long after its expected time is treated as gone.
 LINGER_LIMIT = timedelta(minutes=20)
@@ -48,7 +48,46 @@ def merge(
     - A row closed as UNKNOWN that is observed again becomes OPEN again. Rows closed as
       DEPARTED or CANCELLED keep their outcome.
     """
-    raise NotImplementedError
+    if departure is None:
+        return Departure(
+            journey_ref=observation.journey_ref,
+            station_ref=observation.station_ref,
+            direction=observation.direction,
+            mission=observation.mission,
+            train_number=observation.train_number,
+            origin_ref=observation.origin_ref,
+            destination_ref=observation.destination_ref,
+            platform=observation.platform,
+            aimed_departure=observation.aimed_departure,
+            aimed_arrival=observation.aimed_arrival,
+            first_expected_departure=observation.expected_departure,
+            last_expected_departure=observation.expected_departure,
+            last_expected_arrival=observation.expected_arrival,
+            last_status=observation.departure_status,
+            first_seen_at=seen_at,
+            last_seen_at=seen_at,
+            outcome=Outcome.OPEN,
+            closed_at=None,
+        )
+
+    if seen_at <= departure.last_seen_at:
+        return departure
+
+    if observation.expected_departure is not None:
+        if departure.first_expected_departure is None:
+            departure.first_expected_departure = observation.expected_departure
+        departure.last_expected_departure = observation.expected_departure
+    if observation.expected_arrival is not None:
+        departure.last_expected_arrival = observation.expected_arrival
+    if observation.platform is not None:
+        departure.platform = observation.platform
+    departure.last_status = observation.departure_status
+    departure.last_seen_at = seen_at
+
+    if departure.outcome == Outcome.UNKNOWN:
+        departure.outcome = Outcome.OPEN
+        departure.closed_at = None
+    return departure
 
 
 def decide_outcome(departure: Departure, *, now: datetime, in_latest_global_feed: bool) -> Outcome:
@@ -65,4 +104,15 @@ def decide_outcome(departure: Departure, *, now: datetime, in_latest_global_feed
       cancelled: UNKNOWN.
     - Otherwise over: DEPARTED.
     """
-    raise NotImplementedError
+    its_time = departure.actual_time or departure.aimed_time
+    if its_time is None:
+        # Nothing says when it was due, so there is nothing to wait for once it is gone.
+        return Outcome.OPEN if in_latest_global_feed else Outcome.UNKNOWN
+
+    if in_latest_global_feed and now - its_time <= LINGER_LIMIT:
+        return Outcome.OPEN
+    if departure.last_status == CallStatus.CANCELLED:
+        return Outcome.CANCELLED
+    if not in_latest_global_feed and its_time - now > EARLY_EXIT_LIMIT:
+        return Outcome.UNKNOWN
+    return Outcome.DEPARTED
