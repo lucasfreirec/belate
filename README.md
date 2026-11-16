@@ -1,7 +1,7 @@
-# RER B Reliability
+# Belate
 
 Collects real-time data for the RER B (Paris), stores the history and reports on punctuality,
-cancellations and disruptions. Work in progress; see [PLAN.md](PLAN.md).
+cancellations and disruptions. Work in progress.
 
 ## Development
 

@@ -19,3 +19,9 @@ dist/
 .DS_Store
 .vscode/
 .idea/
+
+# Local planning notes
+PLAN.md
+
+# Raw PRIM responses (large, whole network)
+data/
