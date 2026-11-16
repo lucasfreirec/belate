@@ -7,6 +7,7 @@ from datetime import datetime
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from app.analytics.derive import derive
 from app.db.models import Departure, DisruptionRecord, Outcome
 from app.ingest.lifecycle import decide_outcome, merge
 from app.prim.models import Api, Disruption, FeedSnapshot
@@ -40,10 +41,13 @@ def ingest_snapshot(session: Session, snapshot: FeedSnapshot) -> IngestStats:
     }
     for key, observation in observed.items():
         existing = known.get(key)
-        row = merge(existing, observation, snapshot.produced_at)
+        row = merge(existing, observation, snapshot.produced_at, snapshot.api)
         if existing is None:
             session.add(row)
             stats.created += 1
+        elif row.outcome != Outcome.OPEN:
+            # A closed departure can still be listed for a while; keep its figures current.
+            derive(row)
 
     # Only the global feed lists every departure, so only it can tell that one is gone.
     if snapshot.api is Api.GLOBAL:
@@ -56,6 +60,7 @@ def ingest_snapshot(session: Session, snapshot: FeedSnapshot) -> IngestStats:
             if outcome is not Outcome.OPEN:
                 row.outcome = outcome
                 row.closed_at = snapshot.produced_at
+                derive(row)
                 stats.closed[outcome] += 1
     return stats
 

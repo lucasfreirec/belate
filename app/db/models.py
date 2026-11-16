@@ -1,7 +1,16 @@
-from datetime import datetime
+from datetime import date, datetime
 from enum import StrEnum
 
-from sqlalchemy import BigInteger, DateTime, Index, String, Text, UniqueConstraint
+from sqlalchemy import (
+    BigInteger,
+    Date,
+    DateTime,
+    Index,
+    SmallInteger,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -25,7 +34,8 @@ class Departure(Base):
         UniqueConstraint("journey_ref", "station_ref", name="uq_departures_journey_station"),
         # Closing departures scans the open ones; analytics read by station and time.
         Index("ix_departures_outcome", "outcome"),
-        Index("ix_departures_station_aimed", "station_ref", "aimed_departure"),
+        Index("ix_departures_aimed_time", "aimed_time"),
+        Index("ix_departures_station_aimed_time", "station_ref", "aimed_time"),
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
@@ -42,11 +52,18 @@ class Departure(Base):
     # Scheduled times. A terminus has an arrival only, an origin a departure only.
     aimed_departure: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     aimed_arrival: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # Scheduled time at the station: the departure, or the arrival at a terminus. Stored so
+    # that analytics can filter and sort on one indexed column.
+    aimed_time: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
     # Predictions. The last expected time seen is used as the actual time.
     first_expected_departure: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     last_expected_departure: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     last_expected_arrival: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # Last expected departure seen in each feed separately. Where both exist, their
+    # difference measures the error of relying on the global feed alone.
+    global_expected_departure: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    unitary_expected_departure: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     # Last departure status published by the feed (a CallStatus value).
     last_status: Mapped[str] = mapped_column(String(16))
 
@@ -57,21 +74,17 @@ class Departure(Base):
     outcome: Mapped[str] = mapped_column(String(16), default=Outcome.OPEN)
     closed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
-    @property
-    def aimed_time(self) -> datetime | None:
-        """Scheduled time at the station: the departure, or the arrival at a terminus."""
-        return self.aimed_departure or self.aimed_arrival
+    # Filled when the departure is closed (see app.analytics.derive), for analytics.
+    delay_seconds: Mapped[int | None] = mapped_column()
+    service_date: Mapped[date | None] = mapped_column(Date)
+    local_hour: Mapped[int | None] = mapped_column(SmallInteger)
+    # True when the last prediction is recent enough to stand for the actual time.
+    reliable: Mapped[bool | None] = mapped_column()
 
     @property
     def actual_time(self) -> datetime | None:
         """Best known actual time: the last prediction seen."""
         return self.last_expected_departure or self.last_expected_arrival
-
-    @property
-    def delay_seconds(self) -> float | None:
-        if self.aimed_time is None or self.actual_time is None:
-            return None
-        return (self.actual_time - self.aimed_time).total_seconds()
 
 
 class DisruptionRecord(Base):
@@ -93,3 +106,16 @@ class DisruptionRecord(Base):
     # First and latest poll in which PRIM published this disruption.
     first_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class StationRecord(Base):
+    """A station of the RER B. Filled by a migration from `app.reference.stations`."""
+
+    __tablename__ = "stations"
+
+    ref: Mapped[str] = mapped_column(String(64), primary_key=True)
+    name: Mapped[str] = mapped_column(String(64))
+    # Part of the line: cdg, mitry, trunk, robinson or saint_remy.
+    section: Mapped[str] = mapped_column(String(16))
+    # Rank inside the section, from north to south.
+    position: Mapped[int] = mapped_column()

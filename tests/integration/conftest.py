@@ -45,8 +45,18 @@ def migrated_engine(postgres_url: str) -> Iterator[Engine]:
 
 
 @pytest.fixture
-def sessions(migrated_engine: Engine) -> Callable[[], Session]:
+def sessions(migrated_engine: Engine) -> Iterator[Callable[[], Session]]:
     """A session factory on an empty, migrated database."""
     with migrated_engine.begin() as connection:
         connection.execute(text("TRUNCATE departures, disruptions"))
-    return sessionmaker(migrated_engine, expire_on_commit=False)
+    factory = sessionmaker(migrated_engine, expire_on_commit=False)
+    opened: list[Session] = []
+
+    def new_session() -> Session:
+        opened.append(factory())
+        return opened[-1]
+
+    yield new_session
+    # A session left open would hold locks and block the next test's TRUNCATE.
+    for session in opened:
+        session.close()

@@ -5,7 +5,7 @@ import pytest
 
 from app.db.models import Departure, Outcome
 from app.ingest.lifecycle import decide_outcome, merge
-from app.prim.models import CallStatus, DepartureObservation, Direction
+from app.prim.models import Api, CallStatus, DepartureObservation, Direction
 
 AIMED = datetime(2026, 11, 16, 8, 0, 0, tzinfo=UTC)
 T0 = datetime(2026, 11, 16, 7, 30, 0, tzinfo=UTC)
@@ -40,14 +40,14 @@ def seen(*steps: tuple[datetime, DepartureObservation]) -> Departure:
     """Merge a sequence of (seen_at, observation) and return the resulting row."""
     departure: Departure | None = None
     for seen_at, item in steps:
-        departure = merge(departure, item, seen_at)
+        departure = merge(departure, item, seen_at, Api.GLOBAL)
     assert departure is not None
     return departure
 
 
 class TestMerge:
     def test_first_observation_creates_an_open_departure(self) -> None:
-        departure = merge(None, observation(expected_departure=AIMED + minutes(2)), T0)
+        departure = merge(None, observation(expected_departure=AIMED + minutes(2)), T0, Api.GLOBAL)
 
         assert departure.journey_ref == "train-1"
         assert departure.station_ref == "STIF:StopArea:SP:473843:"
@@ -69,9 +69,11 @@ class TestMerge:
         assert departure.closed_at is None
 
     def test_a_later_observation_updates_the_same_row(self) -> None:
-        first = merge(None, observation(), T0)
+        first = merge(None, observation(), T0, Api.GLOBAL)
 
-        second = merge(first, observation(expected_departure=AIMED + minutes(4)), T0 + minutes(2))
+        second = merge(
+            first, observation(expected_departure=AIMED + minutes(4)), T0 + minutes(2), Api.GLOBAL
+        )
 
         assert second is first
 
@@ -86,7 +88,6 @@ class TestMerge:
         assert departure.last_expected_departure == AIMED + minutes(6)
         assert departure.first_seen_at == T0
         assert departure.last_seen_at == T0 + minutes(4)
-        assert departure.delay_seconds == 360
 
     def test_updates_status_platform_and_arrival(self) -> None:
         departure = seen(
@@ -158,7 +159,9 @@ class TestMerge:
         assert departure.last_expected_departure == AIMED + minutes(1)
 
     def test_a_terminus_has_no_departure_times(self) -> None:
-        departure = merge(None, observation(aimed_departure=None, expected_departure=None), T0)
+        departure = merge(
+            None, observation(aimed_departure=None, expected_departure=None), T0, Api.GLOBAL
+        )
 
         assert departure.aimed_departure is None
         assert departure.first_expected_departure is None
@@ -175,22 +178,22 @@ class TestMerge:
         assert departure.last_status == CallStatus.ON_TIME
 
     def test_an_unknown_departure_seen_again_is_reopened(self) -> None:
-        departure = merge(None, observation(), T0)
+        departure = merge(None, observation(), T0, Api.GLOBAL)
         departure.outcome = Outcome.UNKNOWN
         departure.closed_at = T0 + minutes(2)
 
-        merge(departure, observation(), T0 + minutes(4))
+        merge(departure, observation(), T0 + minutes(4), Api.GLOBAL)
 
         assert departure.outcome == Outcome.OPEN
         assert departure.closed_at is None
 
     @pytest.mark.parametrize("outcome", [Outcome.DEPARTED, Outcome.CANCELLED])
     def test_a_finished_departure_seen_again_stays_closed(self, outcome: Outcome) -> None:
-        departure = merge(None, observation(), T0)
+        departure = merge(None, observation(), T0, Api.GLOBAL)
         departure.outcome = outcome
         departure.closed_at = T0 + minutes(2)
 
-        merge(departure, observation(), T0 + minutes(4))
+        merge(departure, observation(), T0 + minutes(4), Api.GLOBAL)
 
         assert departure.outcome == outcome
         assert departure.closed_at == T0 + minutes(2)
@@ -200,7 +203,7 @@ class TestDecideOutcome:
     """The train is due at 08:00; each test picks a "now" and whether it is still listed."""
 
     def departure(self, **changes: object) -> Departure:
-        return merge(None, observation(**changes), T0)
+        return merge(None, observation(**changes), T0, Api.GLOBAL)
 
     def test_listed_and_still_to_come_is_open(self) -> None:
         outcome = decide_outcome(
@@ -315,3 +318,49 @@ class TestDecideOutcome:
         outcome = decide_outcome(terminus, now=AIMED + minutes(2), in_latest_global_feed=False)
 
         assert outcome is Outcome.DEPARTED
+
+
+class TestFeedPredictions:
+    """The last prediction of each feed is kept apart, to measure how far they differ."""
+
+    def test_the_global_feed_fills_only_its_own_prediction(self) -> None:
+        departure = merge(None, observation(expected_departure=AIMED + minutes(1)), T0, Api.GLOBAL)
+
+        assert departure.global_expected_departure == AIMED + minutes(1)
+        assert departure.unitary_expected_departure is None
+
+    def test_each_feed_keeps_its_last_prediction(self) -> None:
+        departure = merge(None, observation(expected_departure=AIMED + minutes(1)), T0, Api.GLOBAL)
+        merge(
+            departure,
+            observation(expected_departure=AIMED + minutes(3)),
+            T0 + minutes(1),
+            Api.UNITARY,
+        )
+        merge(
+            departure,
+            observation(expected_departure=AIMED + minutes(2)),
+            T0 + minutes(2),
+            Api.GLOBAL,
+        )
+
+        assert departure.global_expected_departure == AIMED + minutes(2)
+        assert departure.unitary_expected_departure == AIMED + minutes(3)
+        assert departure.last_expected_departure == AIMED + minutes(2)
+
+    def test_an_older_observation_does_not_touch_the_feed_predictions(self) -> None:
+        departure = merge(
+            None, observation(expected_departure=AIMED + minutes(3)), T0 + minutes(2), Api.UNITARY
+        )
+
+        merge(departure, observation(expected_departure=AIMED), T0, Api.GLOBAL)
+
+        assert departure.global_expected_departure is None
+        assert departure.unitary_expected_departure == AIMED + minutes(3)
+
+    def test_the_scheduled_time_is_stored(self) -> None:
+        through = merge(None, observation(), T0, Api.GLOBAL)
+        terminus = merge(None, observation(aimed_departure=None), T0, Api.GLOBAL)
+
+        assert through.aimed_time == AIMED
+        assert terminus.aimed_time == AIMED - minutes(1)

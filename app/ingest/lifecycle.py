@@ -22,7 +22,7 @@ Three facts shape the rules:
 from datetime import datetime, timedelta
 
 from app.db.models import Departure, Outcome
-from app.prim.models import CallStatus, DepartureObservation
+from app.prim.models import Api, CallStatus, DepartureObservation
 
 # A departure still listed this long after its expected time is treated as gone.
 LINGER_LIMIT = timedelta(minutes=20)
@@ -31,12 +31,13 @@ EARLY_EXIT_LIMIT = timedelta(minutes=5)
 
 
 def merge(
-    departure: Departure | None, observation: DepartureObservation, seen_at: datetime
+    departure: Departure | None, observation: DepartureObservation, seen_at: datetime, api: Api
 ) -> Departure:
     """Record one observation of a departure and return its row.
 
     `departure` is the existing row for this (train, station), or None the first time it is
-    seen. `seen_at` is when PRIM produced the response the observation comes from.
+    seen. `seen_at` is when PRIM produced the response the observation comes from, and `api`
+    says which feed that was.
 
     - First time: create the row. The first and last expected departure are both the
       observed one, `first_seen_at` and `last_seen_at` are both `seen_at`, the outcome is
@@ -49,7 +50,7 @@ def merge(
       DEPARTED or CANCELLED keep their outcome.
     """
     if departure is None:
-        return Departure(
+        departure = Departure(
             journey_ref=observation.journey_ref,
             station_ref=observation.station_ref,
             direction=observation.direction,
@@ -60,6 +61,7 @@ def merge(
             platform=observation.platform,
             aimed_departure=observation.aimed_departure,
             aimed_arrival=observation.aimed_arrival,
+            aimed_time=observation.aimed_departure or observation.aimed_arrival,
             first_expected_departure=observation.expected_departure,
             last_expected_departure=observation.expected_departure,
             last_expected_arrival=observation.expected_arrival,
@@ -69,6 +71,8 @@ def merge(
             outcome=Outcome.OPEN,
             closed_at=None,
         )
+        _record_feed_prediction(departure, observation, api)
+        return departure
 
     if seen_at <= departure.last_seen_at:
         return departure
@@ -83,11 +87,24 @@ def merge(
         departure.platform = observation.platform
     departure.last_status = observation.departure_status
     departure.last_seen_at = seen_at
+    _record_feed_prediction(departure, observation, api)
 
     if departure.outcome == Outcome.UNKNOWN:
         departure.outcome = Outcome.OPEN
         departure.closed_at = None
     return departure
+
+
+def _record_feed_prediction(
+    departure: Departure, observation: DepartureObservation, api: Api
+) -> None:
+    """Keep the last prediction of each feed apart, to compare them later."""
+    if observation.expected_departure is None:
+        return
+    if api is Api.GLOBAL:
+        departure.global_expected_departure = observation.expected_departure
+    elif api is Api.UNITARY:
+        departure.unitary_expected_departure = observation.expected_departure
 
 
 def decide_outcome(departure: Departure, *, now: datetime, in_latest_global_feed: bool) -> Outcome:
