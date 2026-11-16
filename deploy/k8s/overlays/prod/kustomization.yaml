@@ -1,0 +1,21 @@
+# The cloud server (k3s). The image tags are set by the release workflow (M8); the host name
+# and HTTPS in ingress.yaml are completed then too.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - ingress.yaml
+images:
+  - name: belate-app
+    newName: ghcr.io/lucasfreirec/belate-app
+    newTag: "0.1.0"
+  - name: belate-web
+    newName: ghcr.io/lucasfreirec/belate-web
+    newTag: "0.1.0"
+configMapGenerator:
+  - name: belate-config
+    behavior: merge
+    literals:
+      # The k3s pod network, where its ingress controller (Traefik) runs: nginx takes the
+      # client's address from the X-Forwarded-For header Traefik sets.
+      - "TRUSTED_PROXY_CIDR=10.42.0.0/16"

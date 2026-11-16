@@ -1,7 +1,8 @@
 COMPOSE := docker compose -f deploy/compose/docker-compose.yml $(if $(wildcard .env),--env-file .env)
 
 .PHONY: setup test lint format up down stations snapshot watch api web demo-data migrate worker beat status \
-	collector-up collector-down collector-status collector-logs monitoring-up monitoring-down
+	collector-up collector-down collector-status collector-logs monitoring-up monitoring-down \
+	stack-up stack-down stack-logs k8s-up k8s-open k8s-status k8s-backup k8s-down k8s-delete
 
 setup: ## Install backend and frontend dependencies and the git hooks
 	uv sync
@@ -79,3 +80,54 @@ monitoring-up: ## Start Prometheus (localhost:9090) and Grafana (localhost:3000,
 
 monitoring-down: ## Stop Prometheus and Grafana (their data is kept)
 	$(MONITORING) down
+
+STACK := docker compose -f deploy/compose/docker-compose.collector.yml \
+	-f deploy/compose/docker-compose.stack.yml --env-file .env
+
+stack-up: ## Build and start the whole system in containers, then open http://localhost:8080
+	$(STACK) up -d --build --wait
+
+stack-down: ## Stop the whole system (data is kept)
+	$(STACK) down
+
+stack-logs: ## Follow the logs of the whole system
+	$(STACK) logs -f --tail=50
+
+# Every Kubernetes target names the minikube context, so it can never touch another cluster.
+KUBECTL := kubectl --context minikube
+K8S_APPS := api worker beat web
+
+k8s-up: ## Run the whole system on minikube (starts it if needed); see k8s-open
+	minikube status >/dev/null 2>&1 || minikube start --memory=4g --cpus=4
+	docker build -q -f deploy/docker/Dockerfile -t belate-app:dev .
+	docker build -q -f deploy/docker/web.Dockerfile -t belate-web:dev .
+	minikube image load belate-app:dev
+	minikube image load belate-web:dev
+	KUBECTL="$(KUBECTL)" deploy/k8s/create-secrets.sh .env
+	$(KUBECTL) apply -k deploy/k8s/overlays/dev
+	@# The image tag stays "dev", so restart the pods to pick up the image just loaded.
+	$(KUBECTL) -n belate rollout restart $(addprefix deployment/,$(K8S_APPS))
+	for name in $(K8S_APPS) prometheus grafana; do \
+		$(KUBECTL) -n belate rollout status deployment/$$name --timeout=5m || exit 1; \
+	done
+
+k8s-open: ## Reach minikube: frontend on localhost:8081, Grafana on 3002, Prometheus on 9092
+	@echo "Frontend http://localhost:8081  Grafana http://localhost:3002  Prometheus http://localhost:9092"
+	@echo "Ctrl-C to stop."
+	$(KUBECTL) -n belate port-forward service/web 8081:80 & \
+	$(KUBECTL) -n belate port-forward service/grafana 3002:3000 & \
+	$(KUBECTL) -n belate port-forward service/prometheus 9092:9090 & \
+	wait
+
+k8s-status: ## Show the pods in minikube, the data age and the quota used today
+	$(KUBECTL) -n belate get pods,pvc,cronjobs
+	$(KUBECTL) -n belate exec deployment/worker -c worker -- python -m app.status
+
+k8s-backup: ## Take a database dump in minikube now and list the dumps
+	KUBECTL="$(KUBECTL)" deploy/k8s/backup.sh now
+
+k8s-down: ## Stop minikube (everything in it, data included, is kept)
+	minikube stop
+
+k8s-delete: ## Delete the whole system from minikube, data included
+	$(KUBECTL) delete namespace belate

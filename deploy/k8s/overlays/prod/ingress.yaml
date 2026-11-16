@@ -1,0 +1,22 @@
+# Only the web pods are published. Prometheus, Grafana and the API stay inside the cluster;
+# the API is reached through the web pods under /api, which block /api/metrics.
+# The host name is a placeholder until the server and its domain exist (M8).
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  labels:
+    app.kubernetes.io/component: web
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: belate.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  name: http

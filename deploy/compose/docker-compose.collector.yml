@@ -1,9 +1,11 @@
 # The collector: polls PRIM around the clock and stores the history.
 # Run on the server with `make collector-up` from the repository root. Needs a `.env` with
 # PRIM_API_KEY and POSTGRES_PASSWORD (see .env.example).
+# docker-compose.stack.yml adds the API, the frontend and the monitoring on top of it.
 name: belate-collector
 
 x-app: &app
+  image: belate-app:local
   build:
     context: ../..
     dockerfile: deploy/docker/Dockerfile

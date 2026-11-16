@@ -1,0 +1,36 @@
+# The whole system, ready for any cluster. The overlays choose the images and adapt it:
+# overlays/dev for minikube, overlays/prod for the cloud server.
+#
+# Secrets are not here: deploy/k8s/create-secrets.sh creates them from an env file, so they
+# never sit in a file of the repository.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: belate
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: belate
+resources:
+  - namespace.yaml
+  - postgres.yaml
+  - redis.yaml
+  - api.yaml
+  - worker.yaml
+  - beat.yaml
+  - web.yaml
+  - backup.yaml
+  - prometheus.yaml
+  - grafana.yaml
+  - ../../monitoring
+configMapGenerator:
+  - name: belate-config
+    literals:
+      # Station polled every minute at commute hours: Cité Universitaire.
+      - "PRIM_STATION_REF=STIF:StopArea:SP:473843:"
+      - "REDIS_URL=redis://redis:6379/0"
+      # Only the web pods and Prometheus call the API, so the X-Forwarded-For header set by
+      # the web pods is trusted. The API rate-limits on that address.
+      - "FORWARDED_ALLOW_IPS=*"
+      # Network of the proxy in front of the web pods, whose X-Forwarded-For nginx trusts.
+      # 0.0.0.0/32 matches no connection: nobody by default. The prod overlay sets the
+      # network the ingress runs in.
+      - "TRUSTED_PROXY_CIDR=0.0.0.0/32"

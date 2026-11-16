@@ -85,7 +85,7 @@ make monitoring-up    # Prometheus on localhost:9090, Grafana on localhost:3000 
 ```
 
 Grafana opens on a dashboard with the collector's health, quota use and API traffic.
-Prometheus evaluates four alert rules (`deploy/compose/monitoring/alerts.yml`), visible on
+Prometheus evaluates four alert rules (`deploy/monitoring/alerts.yml`), visible on
 its Alerts page:
 
 | Alert | Fires when |
@@ -94,6 +94,53 @@ its Alerts page:
 | `CollectorSilent` | the collector reports nothing at all for 15 minutes |
 | `QuotaNearlyUsed` | an API's daily quota is over 90% used |
 | `PrimFailing` | more than half of the requests to PRIM fail for 10 minutes |
+
+## Running it
+
+Three ways, from the lightest to the closest to production. All read `.env` (copy
+`.env.example`; `PRIM_API_KEY` is the only value you must add).
+
+**Development**: the code runs on your machine, PostgreSQL and Redis in Docker. See
+[Development](#development) below.
+
+**Everything in Docker Compose**:
+
+```sh
+make stack-up     # builds the images, migrates, starts the 10 containers
+```
+
+The frontend is on http://localhost:8080 and the API behind it under `/api` (documentation
+at `/api/docs`). Grafana is on http://localhost:3001 and Prometheus on http://localhost:9091.
+`make stack-down` stops it and keeps the data.
+
+**Kubernetes on minikube**:
+
+```sh
+make k8s-up       # starts minikube, builds and loads the images, creates the secrets, deploys
+make k8s-open     # frontend on localhost:8081, Grafana on 3002, Prometheus on 9092
+make k8s-status   # pods, data age, quota used
+make k8s-down     # stops minikube; everything in it is kept
+```
+
+The manifests are in `deploy/k8s/`: a Kustomize base, a `dev` overlay for minikube and a
+`prod` overlay for the server. Secrets are created from `.env` by
+`deploy/k8s/create-secrets.sh` and never stored in the repository.
+
+How the pieces fit:
+
+- **One application image** (`deploy/docker/Dockerfile`) runs the API, the workers, the
+  scheduler and the migrations; the command chooses the role. A **web image**
+  (`deploy/docker/web.Dockerfile`) serves the built frontend with nginx and forwards `/api`
+  to the API. Both run as a regular user.
+- **Only the web container is published.** nginx blocks `/api/metrics`; Prometheus scrapes
+  the API directly inside the network. nginx passes the client's address to the API, which
+  rate-limits on it.
+- **Two workers, one scheduler.** Polling goes on while a worker restarts. Each worker runs
+  one task at a time: parsing the global feed takes about 450 MB.
+- **Every application pod migrates the database before it starts**, under a PostgreSQL lock,
+  so pods starting together take turns.
+- **A nightly dump** of the database goes to its own volume, kept 14 days.
+  `deploy/k8s/backup.sh` takes one on demand, lists them and restores one.
 
 ## Development
 

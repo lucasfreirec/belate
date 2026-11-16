@@ -1,0 +1,79 @@
+# One compressed dump of the database a night, kept 14 days on its own volume.
+# deploy/k8s/backup.sh runs one now, lists them and restores one. Copy them off the server
+# regularly: a dump on the same disk does not survive losing the disk.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: backups
+  labels:
+    app.kubernetes.io/component: backup
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: backup
+  labels:
+    app.kubernetes.io/component: backup
+spec:
+  schedule: "30 4 * * *"
+  timeZone: Europe/Paris
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/component: backup
+        spec:
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 999
+            fsGroup: 999
+            seccompProfile:
+              type: RuntimeDefault
+          containers:
+            - name: backup
+              image: postgres:16
+              env:
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: belate-db
+                      key: POSTGRES_PASSWORD
+              command:
+                - bash
+                - -c
+                - |
+                  set -euo pipefail
+                  file="/backups/belate-$(date +%Y-%m-%d-%H%M).sql.gz"
+                  # Written under a temporary name, so a failed dump never looks complete.
+                  pg_dump -h postgres -U belate belate | gzip > "$file.partial"
+                  mv "$file.partial" "$file"
+                  find /backups -name 'belate-*.sql.gz' -mtime +14 -delete
+                  ls -lh /backups
+              resources:
+                requests:
+                  cpu: 50m
+                  memory: 64Mi
+                limits:
+                  memory: 256Mi
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: ["ALL"]
+              volumeMounts:
+                - name: backups
+                  mountPath: /backups
+          volumes:
+            - name: backups
+              persistentVolumeClaim:
+                claimName: backups

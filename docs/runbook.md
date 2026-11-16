@@ -102,6 +102,54 @@ gunzip -c backups/belate-2026-11-20.sql.gz | docker compose \
 
 Restore into an empty database only; stop `worker` and `beat` first.
 
+## Kubernetes
+
+The same system runs on Kubernetes from `deploy/k8s/`. On minikube, `make k8s-up` does every
+step below; on another cluster, run them with that cluster's context.
+
+```sh
+deploy/k8s/create-secrets.sh .env          # secrets from the env file
+kubectl apply -k deploy/k8s/overlays/prod  # everything else
+kubectl -n belate get pods
+```
+
+Every application pod runs `alembic upgrade head` in an init container before it starts, so
+a new version migrates the database by itself. Migrations must keep working with the
+previous version of the code, which keeps running until the new pods are ready.
+
+Common tasks:
+
+- **Logs**: `kubectl -n belate logs deployment/worker -f` (also `api`, `beat`, `web`).
+- **Status**: `kubectl -n belate exec deployment/worker -- python -m app.status`.
+- **Restart one part**: `kubectl -n belate rollout restart deployment/worker`. Restarting
+  `beat` loses one poll.
+- **Change a secret**: edit the env file, run `create-secrets.sh` again, then restart the
+  deployments that use it.
+- **Grafana and Prometheus** are not published:
+  `kubectl -n belate port-forward service/grafana 3000:3000`.
+
+### Backups on Kubernetes
+
+The `backup` CronJob dumps the database every night at 04:30 Paris time onto the `backups`
+volume and keeps 14 days.
+
+```sh
+deploy/k8s/backup.sh now                          # take a dump now
+deploy/k8s/backup.sh list                         # list the dumps
+deploy/k8s/backup.sh restore FILE belate_check    # load a dump into a new database
+```
+
+`restore` refuses a database that already exists. Restoring into a scratch database is how
+to check that a dump is usable. To replace the live database:
+
+```sh
+kubectl -n belate scale deployment/api deployment/worker deployment/beat --replicas=0
+kubectl -n belate exec postgres-0 -- dropdb -U belate belate
+deploy/k8s/backup.sh restore FILE belate
+kubectl -n belate scale deployment/api deployment/beat --replicas=1
+kubectl -n belate scale deployment/worker --replicas=2
+```
+
 ## Rotate the API key
 
 Generate a new key on the PRIM portal, replace `PRIM_API_KEY` in `.env`, then

@@ -1,0 +1,58 @@
+# Filled in at start-up by the nginx image: ${API_UPSTREAM}, ${TRUSTED_PROXY_CIDR} and
+# ${NGINX_LOCAL_RESOLVERS} come from the environment. nginx's own variables ($host...) are
+# left alone.
+
+server {
+    listen 8080;
+    server_name _;
+    server_tokens off;
+
+    root /usr/share/nginx/html;
+
+    # The address of the client. When a proxy in TRUSTED_PROXY_CIDR (the ingress) sits in
+    # front, take it from its X-Forwarded-For; otherwise use the connection's address. A
+    # client cannot fake it by sending its own header.
+    set_real_ip_from ${TRUSTED_PROXY_CIDR};
+    real_ip_header X-Forwarded-For;
+    real_ip_recursive on;
+
+    # Look the API up at each request (cached 30 s) rather than once at start-up, so nginx
+    # starts even before the API exists. The DNS servers are those of the container. nginx
+    # ignores DNS search domains: in Kubernetes, API_UPSTREAM must be the full name.
+    resolver ${NGINX_LOCAL_RESOLVERS} valid=30s ipv6=off;
+
+    gzip on;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+
+    # Prometheus metrics are for the monitoring inside the cluster, never for the internet.
+    location ~ ^/api/metrics(/|$) {
+        return 404;
+    }
+
+    # The API, without the /api prefix. uvicorn is told the prefix with --root-path.
+    location /api/ {
+        set $api http://${API_UPSTREAM};
+        rewrite ^/api/(.*)$ /$1 break;
+        proxy_pass $api;
+        proxy_set_header Host $host;
+        # Replace, never append: the API rate-limits on this address.
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 30s;
+    }
+
+    # Built files carry a hash in their name, so they can be cached for good.
+    location /assets/ {
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        add_header X-Content-Type-Options nosniff;
+    }
+
+    location / {
+        try_files $uri /index.html;
+        # index.html must be fetched again after each release, to load the new assets.
+        add_header Cache-Control "no-cache";
+        add_header X-Content-Type-Options nosniff;
+        add_header Referrer-Policy strict-origin-when-cross-origin;
+        add_header Content-Security-Policy "default-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'";
+    }
+}

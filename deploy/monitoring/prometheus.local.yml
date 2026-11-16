@@ -1,0 +1,13 @@
+# For `make monitoring-up`: scrapes the API started by `make api` on this machine.
+# The full stack and Kubernetes use prometheus.yml, which scrapes the `api` service.
+global:
+  scrape_interval: 30s
+  evaluation_interval: 30s
+
+rule_files:
+  - alerts.yml
+
+scrape_configs:
+  - job_name: belate-api
+    static_configs:
+      - targets: ["host.docker.internal:8000"]

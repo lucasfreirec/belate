@@ -1,0 +1,75 @@
+# The Celery workers: they poll PRIM and evaluate the alerts. Two replicas, so polling goes
+# on while one restarts. Each runs one task at a time (parsing the global feed takes about
+# 450 MB); a process above 250 MB is replaced after its task.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  labels:
+    app.kubernetes.io/component: worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: worker
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: worker
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      # Let a running poll finish (about 10 seconds) before the pod is killed.
+      terminationGracePeriodSeconds: 60
+      initContainers:
+        - name: migrate
+          image: belate-app
+          command: ["alembic", "upgrade", "head"]
+          envFrom:
+            - configMapRef:
+                name: belate-config
+            - secretRef:
+                name: belate-app
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+      containers:
+        # No probes: a crashed worker exits and is restarted, and a stuck one shows up as
+        # the IngestionStale alert, since the other replica keeps polling meanwhile.
+        - name: worker
+          image: belate-app
+          command:
+            ["celery", "-A", "app.worker.celery_app", "worker", "--loglevel=INFO", "--concurrency=1"]
+          envFrom:
+            - configMapRef:
+                name: belate-config
+            - secretRef:
+                name: belate-app
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              memory: 768Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}

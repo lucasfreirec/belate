@@ -1,0 +1,10 @@
+# minikube: the images built locally by `make k8s-up` and loaded into the cluster.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+images:
+  - name: belate-app
+    newTag: dev
+  - name: belate-web
+    newTag: dev
