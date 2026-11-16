@@ -27,6 +27,12 @@ celery_app.conf.update(
             "schedule": crontab(minute="*", hour="7-9,17-19"),
             "options": {"expires": 50},
         },
+        # After the global poll of the same minute has been stored.
+        "evaluate-alerts": {
+            "task": "app.worker.tasks.evaluate_alerts",
+            "schedule": crontab(minute="*/2"),
+            "options": {"countdown": 60, "expires": 110},
+        },
         "poll-traffic-info": {
             "task": "app.worker.tasks.poll_traffic_info",
             "schedule": crontab(minute="*/5"),

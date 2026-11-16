@@ -14,6 +14,11 @@ class Settings(BaseSettings):
     # Station polled by the unitary request. Default: Cité Universitaire.
     prim_station_ref: str = "STIF:StopArea:SP:473843:"
 
+    # Required to create, list or delete subscriptions. Empty: those endpoints are closed.
+    api_token: SecretStr = SecretStr("")
+    # Requests allowed per client address per minute on the public API.
+    rate_limit_per_minute: int = 120
+
     database_url: str = "postgresql+psycopg://belate:belate@localhost:5432/belate"
     redis_url: str = "redis://localhost:6379/0"
 

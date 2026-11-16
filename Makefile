@@ -1,6 +1,6 @@
 COMPOSE := docker compose -f deploy/compose/docker-compose.yml $(if $(wildcard .env),--env-file .env)
 
-.PHONY: setup test lint format up down stations snapshot watch migrate worker beat status \
+.PHONY: setup test lint format up down stations snapshot watch api migrate worker beat status \
 	collector-up collector-down collector-status collector-logs
 
 setup: ## Install backend and frontend dependencies and the git hooks
@@ -36,6 +36,9 @@ snapshot: ## Call each PRIM API once and save the raw responses under data/raw/ 
 
 watch: ## Poll the global and unitary APIs 10 times, 30 s apart (uses 10 requests on each quota)
 	uv run --env-file .env python scripts/explore_prim.py watch
+
+api: ## Run the API on http://localhost:8000 (docs at /docs)
+	uv run uvicorn app.main:app --reload
 
 migrate: ## Apply database migrations
 	uv run alembic upgrade head

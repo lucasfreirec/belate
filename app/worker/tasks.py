@@ -1,9 +1,13 @@
 """Celery tasks: thin wrappers that build the dependencies and call `app.ingest.polling`."""
 
+import logging
+from datetime import UTC, datetime
 from functools import lru_cache
 
 from redis import Redis
 
+from app.alerts.engine import evaluate
+from app.alerts.senders import Sender, WebhookSender, build_webhook_client
 from app.core.config import get_settings
 from app.core.logging import configure_logging
 from app.db.session import new_session
@@ -13,6 +17,7 @@ from app.prim.quota import QuotaGuard
 from app.worker.celery_app import celery_app
 
 configure_logging()
+logger = logging.getLogger(__name__)
 
 
 @lru_cache
@@ -43,3 +48,23 @@ def poll_unitary() -> None:
 @celery_app.task
 def poll_traffic_info() -> None:
     polling.poll_traffic_info(get_client(), get_guard(), new_session)
+
+
+@lru_cache
+def get_senders() -> dict[str, Sender]:
+    return {"webhook": WebhookSender(build_webhook_client())}
+
+
+@celery_app.task
+def evaluate_alerts() -> None:
+    with new_session() as session:
+        stats = evaluate(session, datetime.now(UTC), get_senders())
+        session.commit()
+    if stats.opened or stats.resolved or stats.failed:
+        logger.info(
+            "alerts: %d opened, %d sent, %d failed, %d resolved",
+            stats.opened,
+            stats.sent,
+            stats.failed,
+            stats.resolved,
+        )

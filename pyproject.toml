@@ -11,6 +11,7 @@ dependencies = [
     "pydantic-settings>=2.16.3",
     "redis>=8.1.0",
     "sqlalchemy>=2.1.8",
+    "uvicorn>=0.54.0",
 ]
 
 [dependency-groups]
@@ -33,6 +34,8 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 [tool.mypy]
 strict = true
 files = ["app", "scripts", "tests"]
+# tests/ has no __init__.py; this lets `tests.factories` resolve to one module name.
+explicit_package_bases = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

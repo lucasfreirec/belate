@@ -1,14 +1,16 @@
-from datetime import date, datetime
+from datetime import date, datetime, time
 from enum import StrEnum
 
 from sqlalchemy import (
     BigInteger,
     Date,
     DateTime,
+    ForeignKey,
     Index,
     SmallInteger,
     String,
     Text,
+    Time,
     UniqueConstraint,
 )
 from sqlalchemy.dialects.postgresql import JSONB
@@ -119,3 +121,42 @@ class StationRecord(Base):
     section: Mapped[str] = mapped_column(String(16))
     # Rank inside the section, from north to south.
     position: Mapped[int] = mapped_column()
+
+
+class Subscription(Base):
+    """A commute to watch: a station and direction, on some days, in a time window."""
+
+    __tablename__ = "subscriptions"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    station_ref: Mapped[str] = mapped_column(ForeignKey("stations.ref"))
+    direction: Mapped[str] = mapped_column(String(16))
+    # ISO weekdays: 1 is Monday, 7 is Sunday.
+    days: Mapped[list[int]] = mapped_column(JSONB)
+    # Paris local time. The window may not cross midnight.
+    start_time: Mapped[time] = mapped_column(Time)
+    end_time: Mapped[time] = mapped_column(Time)
+    channel: Mapped[str] = mapped_column(String(16))
+    # Where to notify. For the webhook channel, an https URL.
+    target: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class Alert(Base):
+    """One incident reported to one subscription. It is notified once, when it opens."""
+
+    __tablename__ = "alerts"
+    __table_args__ = (Index("ix_alerts_open", "subscription_id", "resolved_at"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    subscription_id: Mapped[int] = mapped_column(ForeignKey("subscriptions.id", ondelete="CASCADE"))
+    kind: Mapped[str] = mapped_column(String(16))  # disruption, delays or cancellations
+    # What tells two incidents of the same kind apart: the disruption ID, or "" otherwise.
+    key: Mapped[str] = mapped_column(String(64))
+    message: Mapped[str] = mapped_column(Text)
+    opened_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    # Last evaluation in which the condition was still true.
+    last_active_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    notified_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    send_attempts: Mapped[int] = mapped_column(default=0)

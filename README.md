@@ -20,6 +20,36 @@ its limit of 1,000 requests a day.
 - [docs/data.md](docs/data.md): what the PRIM data contains, and the definitions used.
 - [docs/runbook.md](docs/runbook.md): how to deploy and look after the collector.
 
+## API
+
+`make api` serves it on http://localhost:8000, with interactive documentation at `/docs`.
+
+| Endpoint | What it returns |
+|---|---|
+| `GET /stations` | The 47 stations, in line order |
+| `GET /punctuality?window=7d&group_by=branch&group_by=hour` | Delay and cancellation figures, broken down by `branch`, `direction`, `station`, `day_type`, `hour` or `service_date`, and filtered by `direction`, `station` or `branch` |
+| `GET /segments?direction=southbound` | Where trains lose or recover time between stops |
+| `GET /cancellations` | Cancelled departures, in total and per day |
+| `GET /waiting-time?station=...&direction=...` | Average wait by hour at a station |
+| `GET /disruptions?active=true` | Disruptions PRIM publishes for the line |
+| `GET /live?station=...` | Next trains at a station, with the time of the data |
+| `POST`, `GET`, `DELETE /subscriptions` | Commute alerts, sent to a webhook |
+
+`window` is a number of days or hours (`7d`, `24h`), up to 31 days.
+
+Reading is open and rate limited per client address. Subscriptions require
+`Authorization: Bearer <API_TOKEN>`; without an `API_TOKEN` in the configuration they are
+closed. A subscription watches one station and direction on chosen weekdays, in a Paris-time
+window, and notifies an `https` webhook once per incident:
+
+- a disruption published by PRIM that applies now to the line or the station
+- trains running well above the usual delay: the median of the last 30 minutes is over
+  5 minutes and over the usual 90th percentile for that hour, with at least 3 trains
+- 2 or more trains cancelled in the last 30 minutes
+
+Webhook URLs must resolve to public addresses only. This is checked when the subscription is
+created and before every notification, and redirects are not followed.
+
 ## Development
 
 Requirements: `uv`, Node.js 22, Docker.
