@@ -1,7 +1,8 @@
 from datetime import datetime
 from enum import StrEnum
 
-from sqlalchemy import BigInteger, DateTime, Index, String, UniqueConstraint
+from sqlalchemy import BigInteger, DateTime, Index, String, Text, UniqueConstraint
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -71,3 +72,24 @@ class Departure(Base):
         if self.aimed_time is None or self.actual_time is None:
             return None
         return (self.actual_time - self.aimed_time).total_seconds()
+
+
+class DisruptionRecord(Base):
+    """One traffic info message about the RER B, kept up to date while PRIM publishes it."""
+
+    __tablename__ = "disruptions"
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    cause: Mapped[str] = mapped_column(String(32))
+    severity: Mapped[str] = mapped_column(String(32))
+    title: Mapped[str] = mapped_column(Text)
+    message: Mapped[str] = mapped_column(Text)
+    last_update: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    # [[begin, end], ...] as ISO 8601 strings in UTC. A disruption is active inside a period.
+    periods: Mapped[list[list[str]]] = mapped_column(JSONB)
+    # Stations named by the disruption. Empty when it applies to the line as a whole.
+    station_refs: Mapped[list[str]] = mapped_column(JSONB)
+
+    # First and latest poll in which PRIM published this disruption.
+    first_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))

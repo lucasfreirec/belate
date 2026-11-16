@@ -1,9 +1,13 @@
 """Integration tests run against real PostgreSQL and Redis, started in Docker containers."""
 
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 
 import pytest
+from alembic import command
+from alembic.config import Config
 from redis import Redis
+from sqlalchemy import Engine, create_engine, text
+from sqlalchemy.orm import Session, sessionmaker
 from testcontainers.community.postgres import PostgresContainer
 from testcontainers.community.redis import RedisContainer
 
@@ -28,3 +32,21 @@ def redis(redis_url: str) -> Iterator[Redis]:
     client.flushdb()
     yield client
     client.close()
+
+
+@pytest.fixture(scope="session")
+def migrated_engine(postgres_url: str) -> Iterator[Engine]:
+    config = Config("alembic.ini")
+    config.set_main_option("sqlalchemy.url", postgres_url)
+    command.upgrade(config, "head")
+    engine = create_engine(postgres_url)
+    yield engine
+    engine.dispose()
+
+
+@pytest.fixture
+def sessions(migrated_engine: Engine) -> Callable[[], Session]:
+    """A session factory on an empty, migrated database."""
+    with migrated_engine.begin() as connection:
+        connection.execute(text("TRUNCATE departures, disruptions"))
+    return sessionmaker(migrated_engine, expire_on_commit=False)
