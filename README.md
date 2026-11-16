@@ -50,6 +50,28 @@ window, and notifies an `https` webhook once per incident:
 Webhook URLs must resolve to public addresses only. This is checked when the subscription is
 created and before every notification, and redirects are not followed.
 
+## Frontend
+
+`make web` serves it on http://localhost:5173 and sends its `/api` requests to `make api`.
+
+- **Overview**: the period's headline figures, delay by hour and by destination,
+  cancellations per day, and the segments where trains lose the most time.
+- **Line**: a diagram of the line with each station coloured by its average delay, by
+  direction and hour.
+- **Station**: the next trains, and the average wait and delay by hour.
+- **My commute**: create and delete alerts (needs the API token).
+
+Every chart has a table view, and every value shown on hover is also reachable with the
+keyboard.
+
+With no collected history the pages are empty. `make demo-data` fills a separate database
+with 30 invented days; point the API at it to see the pages with data:
+
+```sh
+make demo-data
+DATABASE_URL=postgresql+psycopg://belate:belate@localhost:5432/belate_bench make api
+```
+
 ## Development
 
 Requirements: `uv`, Node.js 22, Docker.

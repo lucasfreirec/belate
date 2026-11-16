@@ -1,8 +1,12 @@
 """Time the analytics queries on a synthetic history.
 
 Creates a separate database `belate_bench` on the local PostgreSQL (`make up`), fills it with
-the given number of days of invented departures at the real daily volume, and prints the
-median time of each query. The real database is not touched.
+the given number of days of invented departures at the real daily volume, ending now, and
+prints the median time of each query. The real database is not touched.
+
+With --keep the database stays, which also makes it a demo data set for the frontend:
+
+    DATABASE_URL=postgresql+psycopg://belate:belate@localhost:5432/belate_bench make api
 
     uv run python -m scripts.bench_queries --days 30
 """
@@ -34,7 +38,6 @@ from app.prim.models import Direction
 BENCH_DATABASE = "belate_bench"
 TRAINS_PER_DAY = 600
 STOPS_PER_TRAIN = 25
-START = datetime(2026, 10, 1, 4, 0, tzinfo=UTC)
 CITE_UNIVERSITAIRE = "STIF:StopArea:SP:473843:"
 RUNS = 7
 
@@ -69,9 +72,15 @@ FILL = text(
         LIMIT :stops OFFSET (train % 20)
     ) AS stop
     CROSS JOIN LATERAL (
+        SELECT :start + make_interval(days => day, secs => train * 114 + stop.rank * 150) AS aimed
+    ) AS schedule
+    CROSS JOIN LATERAL (
         SELECT
-            :start + make_interval(days => day, secs => train * 114 + stop.rank * 150) AS aimed,
-            make_interval(secs => floor(600 * power(random(), 4))::int) AS delay,
+            -- Rush hours run later, as on the real line.
+            make_interval(secs => floor(
+                600 * power(random(), 4)
+                * CASE WHEN extract(hour FROM aimed) IN (6, 7, 16, 17) THEN 2.5 ELSE 1 END
+            )::int) AS delay,
             random() < 0.03 AS cancelled
     ) AS timing
     """
@@ -112,6 +121,10 @@ def main() -> None:
     parser.add_argument("--keep", action="store_true", help="keep the bench database afterwards")
     args = parser.parse_args()
 
+    # The history ends now, so the API's "last 7 days" windows find it.
+    start = (datetime.now(UTC) - timedelta(days=args.days)).replace(
+        hour=4, minute=0, second=0, microsecond=0
+    )
     recreate_database()
     engine = create_engine(bench_url())
     with engine.begin() as connection:
@@ -121,7 +134,7 @@ def main() -> None:
                 "days": args.days,
                 "trains": TRAINS_PER_DAY,
                 "stops": STOPS_PER_TRAIN,
-                "start": START,
+                "start": start,
                 "my_station": CITE_UNIVERSITAIRE,
                 "south_terminal": "STIF:StopArea:SP:47889:",
                 "north_terminal": "STIF:StopArea:SP:473364:",
@@ -137,7 +150,7 @@ def main() -> None:
         ).scalar_one()
     print(f"{args.days} days, {rows:,} departures, table and indexes: {size}\n")
 
-    end = START + timedelta(days=args.days)
+    end = start + timedelta(days=args.days)
     week_ago = end - timedelta(days=7)
     south = Direction.SOUTHBOUND
     with Session(engine) as session:
@@ -160,7 +173,7 @@ def main() -> None:
                 group_by=[Dimension.HOUR],
             ),
             f"punctuality, {args.days} days, by day type and hour": lambda: punctuality(
-                session, since=START, until=end, group_by=[Dimension.DAY_TYPE, Dimension.HOUR]
+                session, since=start, until=end, group_by=[Dimension.DAY_TYPE, Dimension.HOUR]
             ),
             "segments, 7 days, southbound": lambda: segments(
                 session, since=week_ago, until=end, direction=south

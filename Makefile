@@ -1,6 +1,6 @@
 COMPOSE := docker compose -f deploy/compose/docker-compose.yml $(if $(wildcard .env),--env-file .env)
 
-.PHONY: setup test lint format up down stations snapshot watch api migrate worker beat status \
+.PHONY: setup test lint format up down stations snapshot watch api web demo-data migrate worker beat status \
 	collector-up collector-down collector-status collector-logs
 
 setup: ## Install backend and frontend dependencies and the git hooks
@@ -39,6 +39,12 @@ watch: ## Poll the global and unitary APIs 10 times, 30 s apart (uses 10 request
 
 api: ## Run the API on http://localhost:8000 (docs at /docs)
 	uv run uvicorn app.main:app --reload
+
+web: ## Run the frontend on http://localhost:5173 (needs `make api`)
+	cd frontend && npm run dev
+
+demo-data: ## Fill a separate database with 30 invented days, for trying the frontend
+	uv run python -m scripts.bench_queries --days 30 --keep
 
 migrate: ## Apply database migrations
 	uv run alembic upgrade head
