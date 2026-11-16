@@ -1,14 +1,16 @@
 """Exploration script for M1 (data discovery).
 
-Two commands:
+Three commands:
 
     stations   List the RER B stations from the IDFM open data portal (no API key needed).
     snapshot   Call each PRIM API once and save the raw responses under data/raw/.
+    watch      Poll the global and unitary APIs several times in a row, keeping only the
+               RER B part of the global response, to see how the feed changes over time.
 
-Each `snapshot` costs one request on each of the four PRIM quotas. The responses are saved
-untouched so they can be analysed offline and trimmed into test fixtures later.
+Each `snapshot` costs one request on each of the four PRIM quotas; each `watch` poll costs
+one request on the global quota and one on the unitary quota.
 
-Run through the Makefile (`make stations`, `make snapshot`), which loads `.env`.
+Run through the Makefile (`make stations`, `make snapshot`, `make watch`), which loads `.env`.
 """
 
 from __future__ import annotations
@@ -103,27 +105,96 @@ def record(client: httpx.Client, call: Call, out_dir: Path) -> dict[str, object]
     }
 
 
-def snapshot(args: argparse.Namespace) -> int:
-    api_key = os.environ.get("PRIM_API_KEY", "")
-    if not api_key:
-        print("PRIM_API_KEY is not set. Copy .env.example to .env and add your key.")
-        return 1
-    station_ref = os.environ.get("PRIM_STATION_REF") or DEFAULT_STATION_REF
+def trim_to_rer_b(out_dir: Path) -> dict[str, object]:
+    """Replace the saved global response with its RER B journeys only.
 
-    calls = [c for c in prim_calls(station_ref) if not args.only or c.name in args.only]
+    Returns the parse time and journey counts, so the cost of handling the full
+    response is measured on every poll.
+    """
+    full = out_dir / "estimated_timetable.json"
+    started = time.monotonic()
+    body = json.loads(full.read_bytes())
+    parse_seconds = round(time.monotonic() - started, 2)
+
+    delivery = body["Siri"]["ServiceDelivery"]
+    journeys = [
+        journey
+        for timetable in delivery["EstimatedTimetableDelivery"]
+        for frame in timetable["EstimatedJourneyVersionFrame"]
+        for journey in frame["EstimatedVehicleJourney"]
+    ]
+    rer_b = [j for j in journeys if j["LineRef"]["value"] == RER_B_LINE_REF]
+    trimmed = {"ResponseTimestamp": delivery["ResponseTimestamp"], "EstimatedVehicleJourney": rer_b}
+    (out_dir / "estimated_timetable_rer_b.json").write_text(json.dumps(trimmed, ensure_ascii=False))
+    full.unlink()
+
+    print(
+        f"  parsed in {parse_seconds} s; kept {len(rer_b)} RER B journeys of {len(journeys)}; "
+        f"feed timestamp {delivery['ResponseTimestamp']}"
+    )
+    return {
+        "parse_seconds": parse_seconds,
+        "journeys_total": len(journeys),
+        "journeys_rer_b": len(rer_b),
+        "feed_timestamp": delivery["ResponseTimestamp"],
+    }
+
+
+def take(client: httpx.Client, calls: list[Call], station_ref: str, trim: bool) -> bool:
+    """Record one set of calls into a new timestamped folder. Return True if all succeeded."""
     taken_at = datetime.now(UTC)
     out_dir = DATA_DIR / "raw" / taken_at.strftime("%Y%m%dT%H%M%SZ")
     out_dir.mkdir(parents=True)
 
     print(f"Saving to {out_dir} (one request per API):")
+    results = [record(client, call, out_dir) for call in calls]
+    ok = all(r["status"] == 200 for r in results)
+    meta: dict[str, object] = {
+        "taken_at": taken_at.isoformat(),
+        "station_ref": station_ref,
+        "calls": results,
+    }
+    if trim and ok:
+        meta["global"] = trim_to_rer_b(out_dir)
+    (out_dir / "meta.json").write_text(json.dumps(meta, indent=2))
+    return ok
+
+
+def prim_client() -> httpx.Client | None:
+    api_key = os.environ.get("PRIM_API_KEY", "")
+    if not api_key:
+        print("PRIM_API_KEY is not set. Copy .env.example to .env and add your key.")
+        return None
     # The key travels only in a request header; it is never written to disk.
     headers = {"apikey": api_key, "Accept": "application/json"}
-    with httpx.Client(base_url=PRIM_BASE_URL, headers=headers, timeout=TIMEOUT) as client:
-        results = [record(client, call, out_dir) for call in calls]
+    return httpx.Client(base_url=PRIM_BASE_URL, headers=headers, timeout=TIMEOUT)
 
-    meta = {"taken_at": taken_at.isoformat(), "station_ref": station_ref, "calls": results}
-    (out_dir / "meta.json").write_text(json.dumps(meta, indent=2))
-    return 0 if all(r["status"] == 200 for r in results) else 1
+
+def snapshot(args: argparse.Namespace) -> int:
+    station_ref = os.environ.get("PRIM_STATION_REF") or DEFAULT_STATION_REF
+    calls = [c for c in prim_calls(station_ref) if not args.only or c.name in args.only]
+    client = prim_client()
+    if client is None:
+        return 1
+    with client:
+        return 0 if take(client, calls, station_ref, trim=False) else 1
+
+
+def watch(args: argparse.Namespace) -> int:
+    station_ref = os.environ.get("PRIM_STATION_REF") or DEFAULT_STATION_REF
+    wanted = ("estimated_timetable", "stop_monitoring")
+    calls = [c for c in prim_calls(station_ref) if c.name in wanted]
+    client = prim_client()
+    if client is None:
+        return 1
+    with client:
+        for poll in range(args.count):
+            started = time.monotonic()
+            if not take(client, calls, station_ref, trim=True):
+                return 1
+            if poll < args.count - 1:
+                time.sleep(max(0.0, args.interval - (time.monotonic() - started)))
+    return 0
 
 
 def stations(_: argparse.Namespace) -> int:
@@ -163,6 +234,13 @@ def main() -> int:
         help="record only these APIs, to save quota",
     )
     snap.set_defaults(run=snapshot)
+
+    watcher = commands.add_parser("watch", help="poll the global and unitary APIs repeatedly")
+    watcher.add_argument("--count", type=int, default=10, help="number of polls (default 10)")
+    watcher.add_argument(
+        "--interval", type=float, default=30.0, help="seconds between polls (default 30)"
+    )
+    watcher.set_defaults(run=watch)
 
     args = parser.parse_args()
     result: int = args.run(args)

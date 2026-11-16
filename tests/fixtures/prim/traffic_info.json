@@ -1,0 +1,777 @@
+{
+ "disruptions": [
+  {
+   "id": "89063746-a8b7-416d-8555-f652a1d106a2",
+   "applicationPeriods": [
+    {
+     "begin": "20261214T224500",
+     "end": "20261215T030000"
+    },
+    {
+     "begin": "20261215T224500",
+     "end": "20261216T030000"
+    },
+    {
+     "begin": "20261216T224500",
+     "end": "20261217T030000"
+    },
+    {
+     "begin": "20261217T224500",
+     "end": "20261218T030000"
+    },
+    {
+     "begin": "20261218T224500",
+     "end": "20261219T030000"
+    }
+   ],
+   "lastUpdate": "20261021T075742",
+   "cause": "TRAVAUX",
+   "severity": "PERTURBEE",
+   "title": "RER B : Aulnay-sous-Bois <-> Aéroport CDG2 14-18/12",
+   "message": "<p>P&#233;riode : en semaine &#224; partir de 22h45.<br><br>Dates : du lundi 14 au vendredi 18 d&#233;cembre.<br><br>Le trafic est interrompu entre Aulnay-sous-Bois et A&#233;rop. C De Gaulle 2.<br><br>Un dispositif de bus de remplacement sera mis en place entre l'A&#233;roport Ch. de Gaulle 1 jusqu'&#224; Aulnay-sous-Bois. Pour rejoindre l'A&#233;roport Ch. de Gaulle 1, empruntez le CDGVAL depuis l'A&#233;roport Charles de Gaulle 2-TGV.<br><br>Les horaires du calculateur d'itin&#233;raire tiennent compte des travaux.</p><p></p><p>Motif : travaux sur le r&#233;seau ferr&#233;.</p>",
+   "shortMessage": "Arrêt(s) non desservi(s)",
+   "impactedSections": [
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:73699",
+      "name": "Aéroport CDG (Terminal 2) - TGV (Tremblay-en-France)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:72646",
+      "name": "Aulnay-sous-Bois (Aulnay-sous-Bois)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:72646",
+      "name": "Aulnay-sous-Bois (Aulnay-sous-Bois)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:73699",
+      "name": "Aéroport CDG (Terminal 2) - TGV (Tremblay-en-France)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+   "applicationPeriods": [
+    {
+     "begin": "20261112T000000",
+     "end": "20261112T030000"
+    },
+    {
+     "begin": "20261113T000000",
+     "end": "20261113T030000"
+    },
+    {
+     "begin": "20261116T000000",
+     "end": "20261116T030000"
+    },
+    {
+     "begin": "20261117T000000",
+     "end": "20261117T030000"
+    },
+    {
+     "begin": "20261118T000000",
+     "end": "20261118T030000"
+    },
+    {
+     "begin": "20261119T000000",
+     "end": "20261119T030000"
+    },
+    {
+     "begin": "20261120T000000",
+     "end": "20261120T030000"
+    },
+    {
+     "begin": "20261123T000000",
+     "end": "20261123T030000"
+    },
+    {
+     "begin": "20261124T000000",
+     "end": "20261124T030000"
+    },
+    {
+     "begin": "20261125T000000",
+     "end": "20261125T030000"
+    },
+    {
+     "begin": "20261126T000000",
+     "end": "20261126T030000"
+    },
+    {
+     "begin": "20261127T000000",
+     "end": "20261127T030000"
+    },
+    {
+     "begin": "20261130T000000",
+     "end": "20261130T030000"
+    },
+    {
+     "begin": "20261201T000000",
+     "end": "20261201T030000"
+    },
+    {
+     "begin": "20261202T000000",
+     "end": "20261202T030000"
+    },
+    {
+     "begin": "20261203T000000",
+     "end": "20261203T030000"
+    },
+    {
+     "begin": "20261204T000000",
+     "end": "20261204T030000"
+    },
+    {
+     "begin": "20261207T000000",
+     "end": "20261207T030000"
+    },
+    {
+     "begin": "20261208T000000",
+     "end": "20261208T030000"
+    },
+    {
+     "begin": "20261209T000000",
+     "end": "20261209T030000"
+    },
+    {
+     "begin": "20261210T000000",
+     "end": "20261210T030000"
+    },
+    {
+     "begin": "20261211T000000",
+     "end": "20261211T030000"
+    },
+    {
+     "begin": "20261214T000000",
+     "end": "20261214T030000"
+    },
+    {
+     "begin": "20261215T000000",
+     "end": "20261215T030000"
+    },
+    {
+     "begin": "20261216T000000",
+     "end": "20261216T030000"
+    },
+    {
+     "begin": "20261217T000000",
+     "end": "20261217T030000"
+    },
+    {
+     "begin": "20261218T000000",
+     "end": "20261218T030000"
+    },
+    {
+     "begin": "20261221T000000",
+     "end": "20261221T030000"
+    },
+    {
+     "begin": "20261222T000000",
+     "end": "20261222T030000"
+    },
+    {
+     "begin": "20261223T000000",
+     "end": "20261223T030000"
+    },
+    {
+     "begin": "20261224T000000",
+     "end": "20261224T030000"
+    },
+    {
+     "begin": "20261228T000000",
+     "end": "20261228T030000"
+    },
+    {
+     "begin": "20261229T000000",
+     "end": "20261229T030000"
+    },
+    {
+     "begin": "20261230T000000",
+     "end": "20261230T030000"
+    },
+    {
+     "begin": "20261231T000000",
+     "end": "20261231T030000"
+    }
+   ],
+   "lastUpdate": "20260702T150909",
+   "cause": "TRAVAUX",
+   "severity": "PERTURBEE",
+   "title": "RER B : Châtelet <-> Aéroport CDG2 - Mitry - Claye 01/06-31/12",
+   "message": "<p>P&#233;riode : en semaine &#224; partir de 22h45.<br><br>Dates : du lundi 1er juin au jeudi 31 d&#233;cembre<br><br>Le trafic est interrompu entre Ch&#226;telet Les Halles et A&#233;rop. C De Gaulle 2 et entre Ch&#226;telet Les Halles et Mitry - Claye.<br><br>Un dispositif de bus de remplacement sera mis en place au d&#233;part du Gare du Nord.<br><br>Pour plus d'informations, consultez le site du RER B<br><br>Motif : travaux sur le r&#233;seau ferroviaire.</p>",
+   "shortMessage": "Arrêt(s) non desservi(s)",
+   "impactedSections": [
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:69065",
+      "name": "Mitry - Claye (Mitry-Mory)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:73699",
+      "name": "Aéroport CDG (Terminal 2) - TGV (Tremblay-en-France)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:69065",
+      "name": "Mitry - Claye (Mitry-Mory)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:73699",
+      "name": "Aéroport CDG (Terminal 2) - TGV (Tremblay-en-France)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe668353-1b21-4d5e-961a-83d256bf8f33",
+   "applicationPeriods": [
+    {
+     "begin": "20261112T224500",
+     "end": "20261113T030000"
+    },
+    {
+     "begin": "20261113T224500",
+     "end": "20261114T030000"
+    },
+    {
+     "begin": "20261116T224500",
+     "end": "20261117T030000"
+    },
+    {
+     "begin": "20261117T224500",
+     "end": "20261118T030000"
+    },
+    {
+     "begin": "20261118T224500",
+     "end": "20261119T030000"
+    },
+    {
+     "begin": "20261119T224500",
+     "end": "20261120T030000"
+    },
+    {
+     "begin": "20261120T224500",
+     "end": "20261121T030000"
+    },
+    {
+     "begin": "20261123T224500",
+     "end": "20261124T030000"
+    },
+    {
+     "begin": "20261124T224500",
+     "end": "20261125T030000"
+    },
+    {
+     "begin": "20261125T224500",
+     "end": "20261126T030000"
+    },
+    {
+     "begin": "20261126T224500",
+     "end": "20261127T030000"
+    },
+    {
+     "begin": "20261127T224500",
+     "end": "20261128T030000"
+    },
+    {
+     "begin": "20261130T224500",
+     "end": "20261201T030000"
+    },
+    {
+     "begin": "20261201T224500",
+     "end": "20261202T030000"
+    },
+    {
+     "begin": "20261202T224500",
+     "end": "20261203T030000"
+    },
+    {
+     "begin": "20261203T224500",
+     "end": "20261204T030000"
+    },
+    {
+     "begin": "20261204T224500",
+     "end": "20261205T030000"
+    },
+    {
+     "begin": "20261207T224500",
+     "end": "20261208T030000"
+    },
+    {
+     "begin": "20261208T224500",
+     "end": "20261209T030000"
+    },
+    {
+     "begin": "20261209T224500",
+     "end": "20261210T030000"
+    },
+    {
+     "begin": "20261210T224500",
+     "end": "20261211T030000"
+    },
+    {
+     "begin": "20261211T224500",
+     "end": "20261212T030000"
+    },
+    {
+     "begin": "20261214T224500",
+     "end": "20261215T030000"
+    },
+    {
+     "begin": "20261215T224500",
+     "end": "20261216T030000"
+    },
+    {
+     "begin": "20261216T224500",
+     "end": "20261217T030000"
+    },
+    {
+     "begin": "20261217T224500",
+     "end": "20261218T030000"
+    },
+    {
+     "begin": "20261218T224500",
+     "end": "20261219T030000"
+    },
+    {
+     "begin": "20261221T224500",
+     "end": "20261222T030000"
+    },
+    {
+     "begin": "20261222T224500",
+     "end": "20261223T030000"
+    },
+    {
+     "begin": "20261223T224500",
+     "end": "20261224T030000"
+    },
+    {
+     "begin": "20261224T224500",
+     "end": "20261225T030000"
+    },
+    {
+     "begin": "20261228T224500",
+     "end": "20261229T030000"
+    },
+    {
+     "begin": "20261229T224500",
+     "end": "20261230T030000"
+    },
+    {
+     "begin": "20261230T224500",
+     "end": "20261231T030000"
+    },
+    {
+     "begin": "20261231T224500",
+     "end": "20270101T030000"
+    }
+   ],
+   "lastUpdate": "20261020T135500",
+   "cause": "TRAVAUX",
+   "severity": "PERTURBEE",
+   "title": "RER B : Aéroport CDG2/Mitry <-> Châtelet Les H.",
+   "message": "<p>P&#233;riode : en semaine &#224; partir de 22h45 (sauf jour f&#233;ri&#233;).<br><br>Dates : toute l'ann&#233;e sauf les 25 septembre, 2 et 5 octobre et 11 et 13 novembre</p><p>Le trafic est interrompu entre Ch&#226;telet les Halles et A&#233;roport Charles de Gaulle/Mitry-Claye<br><br>Un dispositif de bus de remplacement sera mis en place au d&#233;part du Gare du Nord.<br><br>Les horaires du calculateur d'itin&#233;raire tiennent compte des travaux.<br><br>Motif : travaux sur le r&#233;seau ferroviaire</p>",
+   "shortMessage": "Arrêt(s) non desservi(s)",
+   "impactedSections": [
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:69065",
+      "name": "Mitry - Claye (Mitry-Mory)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:73699",
+      "name": "Aéroport CDG (Terminal 2) - TGV (Tremblay-en-France)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:69065",
+      "name": "Mitry - Claye (Mitry-Mory)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:474151",
+      "name": "Châtelet - Les Halles (Paris)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:73699",
+      "name": "Aéroport CDG (Terminal 2) - TGV (Tremblay-en-France)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "3971ec6b-70d9-4a77-a91a-5a9aa95863ff",
+   "applicationPeriods": [
+    {
+     "begin": "20261106T135800",
+     "end": "20261231T235900"
+    }
+   ],
+   "lastUpdate": "20261106T140121",
+   "cause": "INFORMATION",
+   "severity": "INFORMATION",
+   "tags": [
+    "Actualité"
+   ],
+   "title": "Territoire Mantois - QR codes aux points d'arrêts",
+   "message": "<p>En raison d’un dysfonctionnement technique, les QR codes présents aux points d’arrêt sont temporairement indisponibles.</p><p>&nbsp;</p><p>Merci pour votre compréhension.</p>"
+  },
+  {
+   "id": "728257b6-b82f-4048-8220-a69cb6941ed1",
+   "applicationPeriods": [
+    {
+     "begin": "20261121T030000",
+     "end": "20261122T030000"
+    },
+    {
+     "begin": "20261122T030000",
+     "end": "20261123T030000"
+    }
+   ],
+   "lastUpdate": "20261110T093156",
+   "cause": "TRAVAUX",
+   "severity": "PERTURBEE",
+   "title": "RER B : Aulnay-sous-Bois <-> Mitry - Claye 21-22/11",
+   "message": "<p>P&#233;riode : les week-ends, toute la journ&#233;e.</p><p>Dates : Du 21 au 22 novembre 2026</p><p>Le trafic est interrompu entre Aulnay sous Bois &lt;&gt; Mitry Claye.</p><p>Un dispositif de bus de remplacement sera mis en place au d&#233;part de vos gares.</p><p>Les horaires du calculateur d'itin&#233;raire tiennent compte des travaux.</p><p>Motif : travaux sur le r&#233;seau ferr&#233;</p>",
+   "shortMessage": "Arrêt(s) non desservi(s)",
+   "impactedSections": [
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:69065",
+      "name": "Mitry - Claye (Mitry-Mory)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:72646",
+      "name": "Aulnay-sous-Bois (Aulnay-sous-Bois)"
+     }
+    },
+    {
+     "lineId": "line:IDFM:C01743",
+     "from": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:72646",
+      "name": "Aulnay-sous-Bois (Aulnay-sous-Bois)"
+     },
+     "to": {
+      "type": "stop_area",
+      "id": "stop_area:IDFM:69065",
+      "name": "Mitry - Claye (Mitry-Mory)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "96f90231-49f7-4e1c-a0dc-17ac47a98fe6",
+   "applicationPeriods": [
+    {
+     "begin": "20261110T015200",
+     "end": "20271231T235900"
+    }
+   ],
+   "lastUpdate": "20261109T115356",
+   "cause": "TRAVAUX",
+   "severity": "BLOQUANTE",
+   "tags": [
+    "Actualité"
+   ],
+   "title": "Territoire Matois - Travaux Jean Jaurès Gargenville",
+   "message": "<p>Perturbation inopinée</p><p>En raison de travaux rue Jean Jaurès à Gargenville, les arrêts suivants ne seront pas desservis :</p><p>Lignes 5437 – 5451 – 5480&nbsp;: Gabriel Péri&nbsp;</p><p>Lignes 5437 – 5454 – 5479 – 5480&nbsp;: <strong>Un arrêt provisoire est mis en place en amont pour l’arrêt Jean Jaurès&nbsp;</strong>uniquement en direction de Porcheville</p><p>&nbsp;</p><p>Du mardi 10 novembre 2026 jusqu’à la fin des travaux.</p><p>&nbsp;</p><p>Pour les lignes 5479 et 5480 veuillez vous reporter à l’arrêt Victor Hugo.</p><p>Merci de votre compréhension.</p>"
+  }
+ ],
+ "lines": [
+  {
+   "id": "line:IDFM:C01743",
+   "name": "B",
+   "shortName": "B",
+   "mode": "RapidTransit",
+   "networkId": "network:IDFM:71",
+   "impactedObjects": [
+    {
+     "type": "line",
+     "id": "line:IDFM:C01743",
+     "name": "B",
+     "disruptionIds": [
+      "89063746-a8b7-416d-8555-f652a1d106a2",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "728257b6-b82f-4048-8220-a69cb6941ed1"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:462394",
+     "name": "Gare du Nord",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43071",
+     "name": "Aulnay-sous-Bois",
+     "disruptionIds": [
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "89063746-a8b7-416d-8555-f652a1d106a2",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43231",
+     "name": "Le Bourget",
+     "disruptionIds": [
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:45102",
+     "name": "Châtelet - Les Halles",
+     "disruptionIds": [
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:58793",
+     "name": "Villepinte",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "89063746-a8b7-416d-8555-f652a1d106a2"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43122",
+     "name": "Drancy",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43145",
+     "name": "La Plaine Stade de France",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:46725",
+     "name": "Villeparisis - Mitry-le-Neuf",
+     "disruptionIds": [
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43193",
+     "name": "Sevran - Beaudottes",
+     "disruptionIds": [
+      "89063746-a8b7-416d-8555-f652a1d106a2",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:473364",
+     "name": "Aéroport Charles de Gaulle 2 (Terminal 2)",
+     "disruptionIds": [
+      "89063746-a8b7-416d-8555-f652a1d106a2",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:46222",
+     "name": "Vert-Galant",
+     "disruptionIds": [
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43194",
+     "name": "Sevran - Livry",
+     "disruptionIds": [
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43140",
+     "name": "La Courneuve - Aubervilliers",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:46163",
+     "name": "Le Blanc-Mesnil",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:47878",
+     "name": "Parc des Expositions",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "89063746-a8b7-416d-8555-f652a1d106a2"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:43164",
+     "name": "Mitry - Claye",
+     "disruptionIds": [
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:monomodalStopPlace:462398",
+     "name": "Aéroport CDG 1 (Terminal 3) - RER",
+     "disruptionIds": [
+      "209bc1f3-4072-4aa7-9f97-b8fcc1cefc55",
+      "fe668353-1b21-4d5e-961a-83d256bf8f33",
+      "89063746-a8b7-416d-8555-f652a1d106a2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "line:IDFM:C00737",
+   "name": "5479",
+   "shortName": "5479",
+   "mode": "Bus",
+   "networkId": "network:IDFM:1052",
+   "impactedObjects": [
+    {
+     "type": "network",
+     "id": "network:IDFM:1052",
+     "name": "Mantois",
+     "disruptionIds": [
+      "3971ec6b-70d9-4a77-a91a-5a9aa95863ff"
+     ]
+    },
+    {
+     "type": "line",
+     "id": "line:IDFM:C00737",
+     "name": "5479",
+     "disruptionIds": [
+      "96f90231-49f7-4e1c-a0dc-17ac47a98fe6"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:18325",
+     "name": "Jean Jaurès",
+     "disruptionIds": [
+      "96f90231-49f7-4e1c-a0dc-17ac47a98fe6"
+     ]
+    },
+    {
+     "type": "stop_point",
+     "id": "stop_point:IDFM:18324",
+     "name": "Jean Jaurès",
+     "disruptionIds": [
+      "96f90231-49f7-4e1c-a0dc-17ac47a98fe6"
+     ]
+    }
+   ]
+  }
+ ],
+ "lastUpdatedDate": "2026-11-16T12:23:15.408Z"
+}

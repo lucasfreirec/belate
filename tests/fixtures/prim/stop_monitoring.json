@@ -1,0 +1,1064 @@
+{
+ "Siri": {
+  "ServiceDelivery": {
+   "ResponseTimestamp": "2026-11-16T12:24:06.900Z",
+   "ProducerRef": "IVTR_HET",
+   "ResponseMessageIdentifier": "IVTR_HET:ResponseMessage:f4f7cb5a-f7eb-4faf-afd9-e7af9be9e4bc:LOC:",
+   "StopMonitoringDelivery": [
+    {
+     "ResponseTimestamp": "2026-11-16T12:24:06.993Z",
+     "Version": "2.0",
+     "Status": "true",
+     "MonitoredStopVisit": [
+      {
+       "RecordedAtTime": "2026-11-16T12:23:31.467Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-48-f8355f3d-d5fa-4e25-a26e-ec046b3332e0:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::f8355f3d-d5fa-4e25-a26e-ec046b3332e0:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:58774:"
+        },
+        "DestinationName": [
+         {
+          "value": "Massy-Palaiseau"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "KALI42"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "KALI"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T12:51:42.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T12:52:56.000Z",
+         "DepartureStatus": "delayed",
+         "Order": 48,
+         "AimedArrivalTime": "2026-11-16T12:51:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T12:52:32.000Z",
+         "ArrivalStatus": "delayed"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "KALI42"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:11:01.960Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-48-75310902-a3de-4f6b-824f-3628f3df0e4e:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::75310902-a3de-4f6b-824f-3628f3df0e4e:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:58774:"
+        },
+        "DestinationName": [
+         {
+          "value": "Massy-Palaiseau"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "KALI48"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "KALI"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T13:06:42.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T13:07:56.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 48,
+         "AimedArrivalTime": "2026-11-16T13:06:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T13:07:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "KALI48"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:21:05.179Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-58-6c921f67-40d2-4dac-93f9-5172fdcfc3e0:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::6c921f67-40d2-4dac-93f9-5172fdcfc3e0:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:47889:"
+        },
+        "DestinationName": [
+         {
+          "value": "Saint-Rémy-lès-Chevreuse"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "PIST46"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "PIST"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Saint-Rémy-lès-Chevreuse"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T13:09:52.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T13:11:06.000Z",
+         "DepartureStatus": "delayed",
+         "Order": 58,
+         "AimedArrivalTime": "2026-11-16T13:03:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T13:04:32.000Z",
+         "ArrivalStatus": "delayed"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "PIST46"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T03:30:48.035Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-48-c7e7e54d-da7c-41e4-b2d9-65ed676b3613:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::c7e7e54d-da7c-41e4-b2d9-65ed676b3613:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:58774:"
+        },
+        "DestinationName": [
+         {
+          "value": "Massy-Palaiseau"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "KALI54"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "KALI"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T13:21:42.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T13:22:56.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 48,
+         "AimedArrivalTime": "2026-11-16T13:21:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T13:22:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "KALI54"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:19:27.214Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-58-58d85d29-ec59-43d8-bd37-229f71fadd3e:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::58d85d29-ec59-43d8-bd37-229f71fadd3e:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:47889:"
+        },
+        "DestinationName": [
+         {
+          "value": "Saint-Rémy-lès-Chevreuse"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "PIST58"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "PIST"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Saint-Rémy-lès-Chevreuse"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T13:33:42.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T13:34:56.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 58,
+         "AimedArrivalTime": "2026-11-16T13:33:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T13:34:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "PIST58"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T03:31:45.152Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-43-4f7add14-a4be-4477-a034-4d64ee47a182:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::4f7add14-a4be-4477-a034-4d64ee47a182:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:473364:"
+        },
+        "DestinationName": [
+         {
+          "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "ERIO79"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "ERIO"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T14:11:52.000Z",
+         "DeparturePlatformName": {
+          "value": "2"
+         },
+         "ExpectedDepartureTime": "2026-11-16T14:13:00.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 43,
+         "AimedArrivalTime": "2026-11-16T14:11:52.000Z",
+         "ArrivalPlatformName": {
+          "value": "2"
+         },
+         "AimedDepartureTime": "2026-11-16T14:12:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "ERIO79"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Retour"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:23:01.078Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-21-403299d9-3004-41b7-a9f2-461ba6055ab6:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::403299d9-3004-41b7-a9f2-461ba6055ab6:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:58774:"
+        },
+        "DestinationName": [
+         {
+          "value": "Massy-Palaiseau"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "KALI30"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "KALI"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": true,
+         "DestinationDisplay": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T12:22:18.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T12:23:32.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 21,
+         "AimedArrivalTime": "2026-11-16T12:21:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T12:22:32.000Z",
+         "ArrivalStatus": "arrived"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "KALI30"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:24:01.030Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-20-e078d0ad-fd3b-4142-bd3e-29e13082995b:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::e078d0ad-fd3b-4142-bd3e-29e13082995b:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:43186:"
+        },
+        "DestinationName": [
+         {
+          "value": "Robinson"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "SOSO32"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "SOSO"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Robinson"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T12:27:18.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T12:28:32.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 20,
+         "AimedArrivalTime": "2026-11-16T12:27:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T12:28:22.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "SOSO32"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:23:01.296Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-16-1c4eca99-aad5-4a70-ba6e-71fa7f9a415f:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::1c4eca99-aad5-4a70-ba6e-71fa7f9a415f:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:473364:"
+        },
+        "DestinationName": [
+         {
+          "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "ERIO37"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "ERIO"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T12:28:05.000Z",
+         "DeparturePlatformName": {
+          "value": "2"
+         },
+         "ExpectedDepartureTime": "2026-11-16T12:29:13.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 16,
+         "AimedArrivalTime": "2026-11-16T12:26:52.000Z",
+         "ArrivalPlatformName": {
+          "value": "2"
+         },
+         "AimedDepartureTime": "2026-11-16T12:27:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "ERIO37"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Retour"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:24:01.219Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-26-e08061ef-f8da-49ba-861b-7e988b6f9ffe:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::e08061ef-f8da-49ba-861b-7e988b6f9ffe:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:473364:"
+        },
+        "DestinationName": [
+         {
+          "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "EPAU39"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "EPAU"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T12:33:00.000Z",
+         "DeparturePlatformName": {
+          "value": "2"
+         },
+         "ExpectedDepartureTime": "2026-11-16T12:34:08.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 26,
+         "AimedArrivalTime": "2026-11-16T12:29:52.000Z",
+         "ArrivalPlatformName": {
+          "value": "2"
+         },
+         "AimedDepartureTime": "2026-11-16T12:30:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "EPAU39"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Retour"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:23:22.632Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-12-ab8625f0-06d9-41bc-9e25-3499a3edb9f3:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::ab8625f0-06d9-41bc-9e25-3499a3edb9f3:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:43164:"
+        },
+        "DestinationName": [
+         {
+          "value": "Mitry - Claye"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "ILUS41"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "ILUS"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Mitry - Claye"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473995:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T12:35:12.000Z",
+         "DeparturePlatformName": {
+          "value": "2"
+         },
+         "ExpectedDepartureTime": "2026-11-16T12:36:20.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 12,
+         "AimedArrivalTime": "2026-11-16T12:35:52.000Z",
+         "ArrivalPlatformName": {
+          "value": "2"
+         },
+         "AimedDepartureTime": "2026-11-16T12:36:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "ILUS41"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Retour"
+        }
+       }
+      },
+      {
+       "RecordedAtTime": "2026-11-16T12:23:29.509Z",
+       "ItemIdentifier": "SNCF_MAGENTA_PRD:Item::473843-21-80413d9c-f46e-4144-8c51-68400560d7ac:",
+       "MonitoringRef": {
+        "value": "STIF:StopArea:SP:473843:"
+       },
+       "MonitoredVehicleJourney": {
+        "LineRef": {
+         "value": "STIF:Line::C01743:"
+        },
+        "OperatorRef": {},
+        "FramedVehicleJourneyRef": {
+         "DataFrameRef": {
+          "value": "any"
+         },
+         "DatedVehicleJourneyRef": "SNCF_MAGENTA_PRD:VehicleJourney::80413d9c-f46e-4144-8c51-68400560d7ac:LOC"
+        },
+        "DirectionName": [],
+        "DestinationRef": {
+         "value": "STIF:StopArea:SP:47889:"
+        },
+        "DestinationName": [
+         {
+          "value": "Saint-Rémy-lès-Chevreuse"
+         }
+        ],
+        "VehicleJourneyName": [
+         {
+          "value": "PIST34"
+         }
+        ],
+        "JourneyNote": [
+         {
+          "value": "PIST"
+         }
+        ],
+        "MonitoredCall": {
+         "StopPointName": [
+          {
+           "value": "Cité Universitaire"
+          }
+         ],
+         "VehicleAtStop": false,
+         "DestinationDisplay": [
+          {
+           "value": "Saint-Rémy-lès-Chevreuse"
+          }
+         ],
+         "ArrivalStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "DepartureStopAssignment": {
+          "ExpectedQuayRef": {
+           "value": "STIF:StopPoint:Q:473991:"
+          }
+         },
+         "ExpectedArrivalTime": "2026-11-16T12:38:29.000Z",
+         "DeparturePlatformName": {
+          "value": "1"
+         },
+         "ExpectedDepartureTime": "2026-11-16T12:39:43.000Z",
+         "DepartureStatus": "onTime",
+         "Order": 21,
+         "AimedArrivalTime": "2026-11-16T12:33:42.000Z",
+         "ArrivalPlatformName": {
+          "value": "1"
+         },
+         "AimedDepartureTime": "2026-11-16T12:34:32.000Z",
+         "ArrivalStatus": "onTime"
+        },
+        "TrainNumbers": {
+         "TrainNumberRef": [
+          {
+           "value": "PIST34"
+          }
+         ]
+        },
+        "VehicleFeatureRef": [
+         "longTrain"
+        ],
+        "DirectionRef": {
+         "value": "Aller"
+        }
+       }
+      }
+     ],
+     "StopLineNotice": [],
+     "ServiceException": []
+    }
+   ]
+  }
+ }
+}

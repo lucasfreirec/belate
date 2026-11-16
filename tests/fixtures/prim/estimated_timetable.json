@@ -1,0 +1,5684 @@
+{
+ "Siri": {
+  "ServiceDelivery": {
+   "ResponseTimestamp": "2026-11-16T12:22:01.388Z",
+   "ProducerRef": "IVTR_HET",
+   "ResponseMessageIdentifier": "IVTR_HET:ResponseMessage:52518cd6-46be-4eee-a941-a518bed3b3d0:LOC:",
+   "EstimatedTimetableDelivery": [
+    {
+     "ResponseTimestamp": "2026-11-16T12:22:10.010Z",
+     "Version": "2.0",
+     "Status": "true",
+     "EstimatedJourneyVersionFrame": [
+      {
+       "EstimatedVehicleJourney": [
+        {
+         "RecordedAtTime": "2026-11-16T12:11:01.960Z",
+         "LineRef": {
+          "value": "STIF:Line::C01743:"
+         },
+         "DirectionRef": {
+          "value": "Aller"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::75310902-a3de-4f6b-824f-3628f3df0e4e:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "B"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:47878:"
+         },
+         "OriginName": [
+          {
+           "value": "Parc des Expositions"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:58774:"
+         },
+         "DestinationName": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "KALI"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462398:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:24:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "22"
+            },
+            "ArrivalPlatformName": {
+             "value": "22"
+            },
+            "DepartureStatus": "CANCELLED",
+            "ExpectedArrivalTime": "2026-11-16T12:23:20.000Z",
+            "AimedArrivalTime": "2026-11-16T12:23:20.000Z",
+            "ArrivalStatus": "CANCELLED",
+            "AimedDepartureTime": "2026-11-16T12:24:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47878:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472521:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:30:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:30:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:30:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473364:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:21:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472284:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "12"
+            },
+            "ArrivalPlatformName": {
+             "value": "12"
+            },
+            "DepartureStatus": "CANCELLED",
+            "ArrivalStatus": "CANCELLED",
+            "AimedDepartureTime": "2026-11-16T12:21:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462394:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:53:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "42"
+            },
+            "ArrivalPlatformName": {
+             "value": "42"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:52:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:52:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:53:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44500:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:03:11.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:02:06.000Z",
+            "AimedArrivalTime": "2026-11-16T13:02:06.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:02:36.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43833:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:01:36.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:00:31.000Z",
+            "AimedArrivalTime": "2026-11-16T13:00:31.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:01:01.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43124:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:24:05.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:23:45.000Z",
+            "AimedArrivalTime": "2026-11-16T13:23:45.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:24:05.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44493:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:14:21.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473986:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473986:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:14:01.000Z",
+            "AimedArrivalTime": "2026-11-16T13:14:01.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:14:26.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:59:32.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:58:09.000Z",
+            "AimedArrivalTime": "2026-11-16T12:58:09.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:59:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43066:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:22:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:21:40.000Z",
+            "AimedArrivalTime": "2026-11-16T13:21:40.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:22:10.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43097:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:17:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:16:24.000Z",
+            "AimedArrivalTime": "2026-11-16T13:16:24.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:16:54.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58774:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474058:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "A"
+            },
+            "ArrivalPlatformName": {
+             "value": "A"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:29:29.000Z",
+            "AimedArrivalTime": "2026-11-16T13:29:29.000Z",
+            "ArrivalStatus": "ON_TIME"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43067:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:12:43.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473979:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473979:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:12:23.000Z",
+            "AimedArrivalTime": "2026-11-16T13:12:23.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:12:53.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46007:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:21:05.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:20:00.000Z",
+            "AimedArrivalTime": "2026-11-16T13:20:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:20:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43228:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:25:29.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:25:09.000Z",
+            "AimedArrivalTime": "2026-11-16T13:25:09.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:25:29.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473890:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:04:14.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:03:54.000Z",
+            "AimedArrivalTime": "2026-11-16T13:03:54.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:04:54.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47940:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:27:13.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:26:53.000Z",
+            "AimedArrivalTime": "2026-11-16T13:26:53.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:27:13.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473843:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:07:56.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:06:42.000Z",
+            "AimedArrivalTime": "2026-11-16T13:06:42.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:07:32.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45102:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:57:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:55:47.000Z",
+            "AimedArrivalTime": "2026-11-16T12:56:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:56:47.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43071:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:36:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "4"
+            },
+            "ArrivalPlatformName": {
+             "value": "4"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:36:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:36:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:36:50.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43607:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:10:45.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473932:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473932:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:10:25.000Z",
+            "AimedArrivalTime": "2026-11-16T13:10:25.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:10:55.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43177:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:18:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:18:21.000Z",
+            "AimedArrivalTime": "2026-11-16T13:18:21.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:18:41.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:08:59.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473957:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473957:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:08:39.000Z",
+            "AimedArrivalTime": "2026-11-16T13:08:39.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:09:09.000Z"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "KALI48"
+          }
+         ]
+        },
+        {
+         "RecordedAtTime": "2026-11-16T12:19:27.214Z",
+         "LineRef": {
+          "value": "STIF:Line::C01743:"
+         },
+         "DirectionRef": {
+          "value": "Aller"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::58d85d29-ec59-43d8-bd37-229f71fadd3e:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "B"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:462398:"
+         },
+         "OriginName": [
+          {
+           "value": "Aéroport Charles de Gaulle 1 (Terminal 3)"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:47889:"
+         },
+         "DestinationName": [
+          {
+           "value": "Saint-Rémy-lès-Chevreuse"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "PIST"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58793:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:54:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471271:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471271:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:53:50.000Z",
+            "AimedArrivalTime": "2026-11-16T12:53:50.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:54:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43232:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:00:16.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473902:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473902:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:59:03.000Z",
+            "AimedArrivalTime": "2026-11-16T13:59:03.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:59:48.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43097:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:40:29.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:39:12.000Z",
+            "AimedArrivalTime": "2026-11-16T13:39:12.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:40:02.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43231:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:08:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471112:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471112:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:07:30.000Z",
+            "AimedArrivalTime": "2026-11-16T13:07:30.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:08:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47889:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474012:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:13:28.000Z",
+            "AimedArrivalTime": "2026-11-16T14:13:28.000Z",
+            "ArrivalStatus": "ON_TIME"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47046:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:06:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473940:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473940:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:05:30.000Z",
+            "AimedArrivalTime": "2026-11-16T14:05:30.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:06:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58774:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:50:24.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474060:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474060:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:48:52.000Z",
+            "AimedArrivalTime": "2026-11-16T13:48:52.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:50:02.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43066:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:45:02.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:43:52.000Z",
+            "AimedArrivalTime": "2026-11-16T13:43:52.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:44:37.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43145:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:14:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472711:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472711:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:13:30.000Z",
+            "AimedArrivalTime": "2026-11-16T13:13:30.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:14:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43086:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:02:31.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473903:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473903:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:01:21.000Z",
+            "AimedArrivalTime": "2026-11-16T14:01:21.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:02:11.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43175:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:54:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474031:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474031:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:53:49.000Z",
+            "AimedArrivalTime": "2026-11-16T13:53:49.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:54:34.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473364:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:44:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470932:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "11"
+            },
+            "ArrivalPlatformName": {
+             "value": "11"
+            },
+            "DepartureStatus": "CANCELLED",
+            "ArrivalStatus": "CANCELLED",
+            "AimedDepartureTime": "2026-11-16T12:44:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45102:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:24:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:22:47.000Z",
+            "AimedArrivalTime": "2026-11-16T13:23:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:23:47.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43122:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:05:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470881:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470881:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:04:40.000Z",
+            "AimedArrivalTime": "2026-11-16T13:04:40.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:05:10.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473843:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:34:56.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:33:42.000Z",
+            "AimedArrivalTime": "2026-11-16T13:33:42.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:34:32.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47009:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:52:47.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474037:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474037:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:51:44.000Z",
+            "AimedArrivalTime": "2026-11-16T13:51:44.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:52:29.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46163:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:03:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471942:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471942:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:02:30.000Z",
+            "AimedArrivalTime": "2026-11-16T13:02:30.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:03:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44500:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:30:11.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:29:06.000Z",
+            "AimedArrivalTime": "2026-11-16T13:29:06.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:29:36.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473890:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:31:14.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:30:54.000Z",
+            "AimedArrivalTime": "2026-11-16T13:30:54.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:31:54.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43103:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:04:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473978:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473978:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:03:38.000Z",
+            "AimedArrivalTime": "2026-11-16T14:03:38.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:04:08.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47888:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:07:43.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473945:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473945:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:07:23.000Z",
+            "AimedArrivalTime": "2026-11-16T14:07:23.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:07:58.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47878:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:52:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472521:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472521:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:51:50.000Z",
+            "AimedArrivalTime": "2026-11-16T12:51:50.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:52:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43071:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:00:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "4"
+            },
+            "ArrivalPlatformName": {
+             "value": "4"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:00:00.000Z",
+            "AimedArrivalTime": "2026-11-16T13:00:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:00:50.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46007:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:43:17.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:42:12.000Z",
+            "AimedArrivalTime": "2026-11-16T13:42:12.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:42:42.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43140:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:11:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472855:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472855:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:11:00.000Z",
+            "AimedArrivalTime": "2026-11-16T13:11:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:11:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:474069:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:57:43.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474063:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474063:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:56:42.000Z",
+            "AimedArrivalTime": "2026-11-16T13:56:42.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:57:27.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47052:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:10:56.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473966:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473966:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:10:36.000Z",
+            "AimedArrivalTime": "2026-11-16T14:10:36.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:11:06.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462398:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:47:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "22"
+            },
+            "ArrivalPlatformName": {
+             "value": "22"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:46:10.000Z",
+            "AimedArrivalTime": "2026-11-16T12:46:10.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:47:10.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:26:32.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:25:09.000Z",
+            "AimedArrivalTime": "2026-11-16T13:25:09.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:26:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43833:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:28:36.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:27:31.000Z",
+            "AimedArrivalTime": "2026-11-16T13:27:31.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:28:01.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462394:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:20:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "42"
+            },
+            "ArrivalPlatformName": {
+             "value": "42"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:19:00.000Z",
+            "AimedArrivalTime": "2026-11-16T13:19:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:20:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43193:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:57:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470731:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470731:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:56:20.000Z",
+            "AimedArrivalTime": "2026-11-16T12:56:20.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:57:10.000Z"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "PIST58"
+          }
+         ]
+        },
+        {
+         "RecordedAtTime": "2026-11-16T12:21:05.179Z",
+         "LineRef": {
+          "value": "STIF:Line::C01743:"
+         },
+         "DirectionRef": {
+          "value": "Aller"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::6c921f67-40d2-4dac-93f9-5172fdcfc3e0:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "B"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:473364:"
+         },
+         "OriginName": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:47889:"
+         },
+         "DestinationName": [
+          {
+           "value": "Saint-Rémy-lès-Chevreuse"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "PIST"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:474069:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:33:53.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474063:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474063:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:32:52.000Z",
+            "AimedArrivalTime": "2026-11-16T13:26:42.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:27:27.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43140:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:47:40.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472855:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472855:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:47:10.000Z",
+            "AimedArrivalTime": "2026-11-16T12:41:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:41:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47889:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474012:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:49:38.000Z",
+            "AimedArrivalTime": "2026-11-16T13:43:28.000Z",
+            "ArrivalStatus": "DELAYED"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43231:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:44:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471112:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471112:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:43:40.000Z",
+            "AimedArrivalTime": "2026-11-16T12:37:30.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:38:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462394:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:56:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "42"
+            },
+            "ArrivalPlatformName": {
+             "value": "42"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:55:10.000Z",
+            "AimedArrivalTime": "2026-11-16T12:49:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:50:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43833:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:04:46.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:03:41.000Z",
+            "AimedArrivalTime": "2026-11-16T12:57:31.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:58:01.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43193:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:33:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470731:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470731:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:32:30.000Z",
+            "AimedArrivalTime": "2026-11-16T12:26:20.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:27:10.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462398:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:23:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "22"
+            },
+            "ArrivalPlatformName": {
+             "value": "22"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:22:20.000Z",
+            "AimedArrivalTime": "2026-11-16T12:16:10.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:17:10.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43177:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:17:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:17:21.000Z",
+            "AimedArrivalTime": "2026-11-16T13:11:11.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:11:31.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46007:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:19:27.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:18:22.000Z",
+            "AimedArrivalTime": "2026-11-16T13:12:12.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:12:42.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43228:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:22:59.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:22:39.000Z",
+            "AimedArrivalTime": "2026-11-16T13:16:29.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:16:49.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47940:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:23:52.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:23:32.000Z",
+            "AimedArrivalTime": "2026-11-16T13:17:22.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:17:42.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47009:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:28:57.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474037:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474037:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:27:54.000Z",
+            "AimedArrivalTime": "2026-11-16T13:21:44.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:22:29.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58774:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:26:34.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474060:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474060:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:25:02.000Z",
+            "AimedArrivalTime": "2026-11-16T13:18:52.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:20:02.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43145:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:50:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472711:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472711:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:49:40.000Z",
+            "AimedArrivalTime": "2026-11-16T12:43:30.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:44:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58793:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:30:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471271:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471271:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:30:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:23:50.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:24:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43175:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:31:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474031:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474031:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:29:59.000Z",
+            "AimedArrivalTime": "2026-11-16T13:23:49.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:24:34.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43097:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:16:39.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:15:22.000Z",
+            "AimedArrivalTime": "2026-11-16T13:09:12.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:10:02.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43086:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:38:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473903:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473903:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:37:31.000Z",
+            "AimedArrivalTime": "2026-11-16T13:31:21.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:32:11.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43066:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:21:12.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:20:02.000Z",
+            "AimedArrivalTime": "2026-11-16T13:13:52.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:14:37.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:02:42.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:01:19.000Z",
+            "AimedArrivalTime": "2026-11-16T12:55:09.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:56:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46163:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:39:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471942:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471942:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:38:40.000Z",
+            "AimedArrivalTime": "2026-11-16T12:32:30.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:33:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44500:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:06:21.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:05:16.000Z",
+            "AimedArrivalTime": "2026-11-16T12:59:06.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:59:36.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47046:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:42:40.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473940:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473940:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:41:40.000Z",
+            "AimedArrivalTime": "2026-11-16T13:35:30.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:36:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43232:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:36:26.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473902:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473902:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:35:13.000Z",
+            "AimedArrivalTime": "2026-11-16T13:29:03.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:29:48.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47878:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:28:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472521:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472521:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:28:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:21:50.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:22:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43103:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:41:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473978:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473978:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:39:48.000Z",
+            "AimedArrivalTime": "2026-11-16T13:33:38.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:34:08.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43122:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:41:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470881:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470881:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:40:50.000Z",
+            "AimedArrivalTime": "2026-11-16T12:34:40.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:35:10.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43124:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:22:27.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:22:07.000Z",
+            "AimedArrivalTime": "2026-11-16T13:15:57.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:16:17.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473364:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:20:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470932:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "11"
+            },
+            "ArrivalPlatformName": {
+             "value": "11"
+            },
+            "DepartureStatus": "DELAYED",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:14:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43071:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:37:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "4"
+            },
+            "ArrivalPlatformName": {
+             "value": "4"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:36:10.000Z",
+            "AimedArrivalTime": "2026-11-16T12:30:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:30:50.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45102:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:00:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:58:57.000Z",
+            "AimedArrivalTime": "2026-11-16T12:53:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:53:47.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47888:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:43:53.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473945:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473945:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:43:33.000Z",
+            "AimedArrivalTime": "2026-11-16T13:37:23.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:37:58.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47052:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:47:06.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473966:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473966:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:46:46.000Z",
+            "AimedArrivalTime": "2026-11-16T13:40:36.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:41:06.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473843:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:11:06.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:09:52.000Z",
+            "AimedArrivalTime": "2026-11-16T13:03:42.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:04:32.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473890:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:07:24.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Saint-Rémy-lès-Chevreuse"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:07:04.000Z",
+            "AimedArrivalTime": "2026-11-16T13:00:54.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:01:54.000Z"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "PIST46"
+          }
+         ]
+        },
+        {
+         "RecordedAtTime": "2026-11-16T12:21:31.331Z",
+         "LineRef": {
+          "value": "STIF:Line::C01743:"
+         },
+         "DirectionRef": {
+          "value": "Aller"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::f8355f3d-d5fa-4e25-a26e-ec046b3332e0:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "B"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:473364:"
+         },
+         "OriginName": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:58774:"
+         },
+         "DestinationName": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "KALI"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43071:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:36:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "4"
+            },
+            "ArrivalPlatformName": {
+             "value": "4"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:36:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:21:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:21:50.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46007:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:06:05.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:05:00.000Z",
+            "AimedArrivalTime": "2026-11-16T13:05:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:05:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43228:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:10:29.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:10:09.000Z",
+            "AimedArrivalTime": "2026-11-16T13:10:09.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:10:29.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462394:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:53:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "42"
+            },
+            "ArrivalPlatformName": {
+             "value": "42"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:52:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:37:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:38:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:53:59.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473957:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473957:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:53:39.000Z",
+            "AimedArrivalTime": "2026-11-16T12:53:39.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:54:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43607:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:55:45.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473932:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473932:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:55:25.000Z",
+            "AimedArrivalTime": "2026-11-16T12:55:25.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:55:55.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462398:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:24:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "22"
+            },
+            "ArrivalPlatformName": {
+             "value": "22"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:23:20.000Z",
+            "AimedArrivalTime": "2026-11-16T12:08:20.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:09:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47940:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:12:13.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:11:53.000Z",
+            "AimedArrivalTime": "2026-11-16T13:11:53.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:12:13.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45102:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:57:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:40:47.000Z",
+            "AimedArrivalTime": "2026-11-16T12:41:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:41:47.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44493:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:59:21.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473986:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473986:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:59:01.000Z",
+            "AimedArrivalTime": "2026-11-16T12:59:01.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:59:26.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58793:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:31:40.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471271:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471271:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:31:10.000Z",
+            "AimedArrivalTime": "2026-11-16T12:16:10.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:16:40.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43124:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:09:05.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:08:45.000Z",
+            "AimedArrivalTime": "2026-11-16T13:08:45.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:09:05.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43097:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:02:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:01:24.000Z",
+            "AimedArrivalTime": "2026-11-16T13:01:24.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:01:54.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58774:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474058:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "A"
+            },
+            "ArrivalPlatformName": {
+             "value": "A"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:14:29.000Z",
+            "AimedArrivalTime": "2026-11-16T13:14:29.000Z",
+            "ArrivalStatus": "DELAYED"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43067:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:57:43.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473979:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473979:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:57:23.000Z",
+            "AimedArrivalTime": "2026-11-16T12:57:23.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:57:53.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43193:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:33:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470731:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470731:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:32:50.000Z",
+            "AimedArrivalTime": "2026-11-16T12:17:50.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:18:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44500:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:48:11.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:47:06.000Z",
+            "AimedArrivalTime": "2026-11-16T12:47:06.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:47:36.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47878:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:30:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472521:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472521:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:30:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:15:00.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:15:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473843:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:52:56.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:51:42.000Z",
+            "AimedArrivalTime": "2026-11-16T12:51:42.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:52:32.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473890:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:49:14.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:48:54.000Z",
+            "AimedArrivalTime": "2026-11-16T12:48:54.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:49:54.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:44:32.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:43:09.000Z",
+            "AimedArrivalTime": "2026-11-16T12:43:09.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:44:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473364:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:21:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472284:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "12"
+            },
+            "ArrivalPlatformName": {
+             "value": "12"
+            },
+            "DepartureStatus": "DELAYED",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:06:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43177:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:03:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:03:21.000Z",
+            "AimedArrivalTime": "2026-11-16T13:03:21.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:03:41.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43833:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:46:36.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T12:45:31.000Z",
+            "AimedArrivalTime": "2026-11-16T12:45:31.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T12:46:01.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43066:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:07:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "DELAYED",
+            "ExpectedArrivalTime": "2026-11-16T13:06:40.000Z",
+            "AimedArrivalTime": "2026-11-16T13:06:40.000Z",
+            "ArrivalStatus": "DELAYED",
+            "AimedDepartureTime": "2026-11-16T13:07:10.000Z"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "KALI42"
+          }
+         ]
+        },
+        {
+         "RecordedAtTime": "2026-11-16T03:30:48.035Z",
+         "LineRef": {
+          "value": "STIF:Line::C01743:"
+         },
+         "DirectionRef": {
+          "value": "Aller"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::c7e7e54d-da7c-41e4-b2d9-65ed676b3613:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "B"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:473364:"
+         },
+         "OriginName": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:58774:"
+         },
+         "DestinationName": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "KALI"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43067:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:27:43.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473979:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473979:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:27:23.000Z",
+            "AimedArrivalTime": "2026-11-16T13:27:23.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:27:53.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43228:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:40:29.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473905:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:40:09.000Z",
+            "AimedArrivalTime": "2026-11-16T13:40:09.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:40:29.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44493:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:29:21.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473986:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473986:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:29:01.000Z",
+            "AimedArrivalTime": "2026-11-16T13:29:01.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:29:26.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58774:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474058:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "A"
+            },
+            "ArrivalPlatformName": {
+             "value": "A"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:44:29.000Z",
+            "AimedArrivalTime": "2026-11-16T13:44:29.000Z",
+            "ArrivalStatus": "ON_TIME"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43071:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:51:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472589:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "4"
+            },
+            "ArrivalPlatformName": {
+             "value": "4"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:51:00.000Z",
+            "AimedArrivalTime": "2026-11-16T12:51:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:51:50.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46007:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:36:05.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473947:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:35:00.000Z",
+            "AimedArrivalTime": "2026-11-16T13:35:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:35:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43097:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:32:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473969:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:31:24.000Z",
+            "AimedArrivalTime": "2026-11-16T13:31:24.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:31:54.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473890:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:19:14.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473994:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:18:54.000Z",
+            "AimedArrivalTime": "2026-11-16T13:18:54.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:19:54.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473843:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:22:56.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473991:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:21:42.000Z",
+            "AimedArrivalTime": "2026-11-16T13:21:42.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:22:32.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:23:59.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473957:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473957:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:23:39.000Z",
+            "AimedArrivalTime": "2026-11-16T13:23:39.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:24:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45102:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:12:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473989:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:10:47.000Z",
+            "AimedArrivalTime": "2026-11-16T13:11:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:11:47.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43607:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:25:45.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473932:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473932:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:25:25.000Z",
+            "AimedArrivalTime": "2026-11-16T13:25:25.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:25:55.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43177:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:33:41.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474029:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:33:21.000Z",
+            "AimedArrivalTime": "2026-11-16T13:33:21.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:33:41.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462398:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:39:20.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471913:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "22"
+            },
+            "ArrivalPlatformName": {
+             "value": "22"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:38:20.000Z",
+            "AimedArrivalTime": "2026-11-16T12:38:20.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:39:20.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473364:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:36:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472284:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "12"
+            },
+            "ArrivalPlatformName": {
+             "value": "12"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:36:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:14:32.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473915:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:13:09.000Z",
+            "AimedArrivalTime": "2026-11-16T13:13:09.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:14:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47940:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:42:13.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:491414:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1B"
+            },
+            "ArrivalPlatformName": {
+             "value": "1B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:41:53.000Z",
+            "AimedArrivalTime": "2026-11-16T13:41:53.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:42:13.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43833:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:16:36.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473907:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:15:31.000Z",
+            "AimedArrivalTime": "2026-11-16T13:15:31.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:16:01.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44500:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:18:11.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473918:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:17:06.000Z",
+            "AimedArrivalTime": "2026-11-16T13:17:06.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:17:36.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462394:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:08:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472814:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "42"
+            },
+            "ArrivalPlatformName": {
+             "value": "42"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:07:00.000Z",
+            "AimedArrivalTime": "2026-11-16T13:07:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:08:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43124:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:39:05.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473955:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:38:45.000Z",
+            "AimedArrivalTime": "2026-11-16T13:38:45.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:39:05.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43066:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:37:50.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473980:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:36:40.000Z",
+            "AimedArrivalTime": "2026-11-16T13:36:40.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:37:10.000Z"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "KALI54"
+          }
+         ]
+        },
+        {
+         "RecordedAtTime": "2026-11-16T03:31:45.152Z",
+         "LineRef": {
+          "value": "STIF:Line::C01743:"
+         },
+         "DirectionRef": {
+          "value": "Retour"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::4f7add14-a4be-4477-a034-4d64ee47a182:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "B"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:58774:"
+         },
+         "OriginName": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:473364:"
+         },
+         "DestinationName": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "ERIO"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43097:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:03:07.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473970:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473970:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:01:57.000Z",
+            "AimedArrivalTime": "2026-11-16T14:01:57.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:02:47.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43228:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:53:28.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473906:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473906:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:53:08.000Z",
+            "AimedArrivalTime": "2026-11-16T13:53:08.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:53:28.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58774:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:49:35.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474061:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "B"
+            },
+            "ArrivalPlatformName": {
+             "value": "B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:49:35.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44493:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:05:06.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473981:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473981:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:04:46.000Z",
+            "AimedArrivalTime": "2026-11-16T14:04:46.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:05:16.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43067:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:06:46.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473983:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473983:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:06:26.000Z",
+            "AimedArrivalTime": "2026-11-16T14:06:26.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:06:56.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473843:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:13:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473995:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473995:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:11:52.000Z",
+            "AimedArrivalTime": "2026-11-16T14:11:52.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:12:32.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43071:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:42:10.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470950:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:470950:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "6"
+            },
+            "ArrivalPlatformName": {
+             "value": "6"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:41:20.000Z",
+            "AimedArrivalTime": "2026-11-16T14:41:20.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:42:10.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47940:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:51:40.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474055:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474055:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:51:20.000Z",
+            "AimedArrivalTime": "2026-11-16T13:51:20.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:51:40.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45102:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:22:49.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473990:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473990:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2B"
+            },
+            "ArrivalPlatformName": {
+             "value": "2B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:22:29.000Z",
+            "AimedArrivalTime": "2026-11-16T14:22:29.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:23:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473364:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472284:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "12"
+            },
+            "ArrivalPlatformName": {
+             "value": "12"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:56:40.000Z",
+            "AimedArrivalTime": "2026-11-16T14:56:40.000Z",
+            "ArrivalStatus": "ON_TIME"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43607:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:08:49.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473927:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473927:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:08:29.000Z",
+            "AimedArrivalTime": "2026-11-16T14:08:29.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:08:59.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44500:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:17:47.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473917:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473917:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:16:39.000Z",
+            "AimedArrivalTime": "2026-11-16T14:16:39.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:17:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462394:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:27:00.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472757:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472757:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "43"
+            },
+            "ArrivalPlatformName": {
+             "value": "43"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:26:00.000Z",
+            "AimedArrivalTime": "2026-11-16T14:26:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:27:00.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:473890:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:15:43.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473997:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473997:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:14:22.000Z",
+            "AimedArrivalTime": "2026-11-16T14:14:22.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:15:22.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43177:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:00:28.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474027:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474027:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:00:08.000Z",
+            "AimedArrivalTime": "2026-11-16T14:00:08.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:00:28.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43833:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:19:21.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473908:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473908:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:18:13.000Z",
+            "AimedArrivalTime": "2026-11-16T14:18:13.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:18:43.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43124:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:54:53.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473954:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473954:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:54:33.000Z",
+            "AimedArrivalTime": "2026-11-16T13:54:33.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:54:53.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:45877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:10:36.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473956:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473956:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:10:16.000Z",
+            "AimedArrivalTime": "2026-11-16T14:10:16.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:10:46.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44877:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:21:37.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473916:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473916:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:20:19.000Z",
+            "AimedArrivalTime": "2026-11-16T14:20:19.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:21:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43066:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:57:34.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473996:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473996:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:56:29.000Z",
+            "AimedArrivalTime": "2026-11-16T13:56:29.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:57:09.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:46007:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T13:59:28.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473949:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:473949:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "2"
+            },
+            "ArrivalPlatformName": {
+             "value": "2"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T13:58:20.000Z",
+            "AimedArrivalTime": "2026-11-16T13:58:20.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T13:58:50.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:462398:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T14:54:30.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472853:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472853:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "23"
+            },
+            "ArrivalPlatformName": {
+             "value": "23"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T14:53:30.000Z",
+            "AimedArrivalTime": "2026-11-16T14:53:30.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T14:54:30.000Z"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "ERIO79"
+          }
+         ]
+        },
+        {
+         "RecordedAtTime": "2026-11-16T12:18:25.103Z",
+         "LineRef": {
+          "value": "STIF:Line::C01743:"
+         },
+         "DirectionRef": {
+          "value": "Aller"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::b0824e69-8e04-4c9f-a96f-75347070e1eb:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "B"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:473364:"
+         },
+         "OriginName": [
+          {
+           "value": "Aéroport Charles de Gaulle 2 (Terminal 2)"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:58774:"
+         },
+         "DestinationName": [
+          {
+           "value": "Massy-Palaiseau"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "KALI"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:58774:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Massy-Palaiseau"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:474061:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "B"
+            },
+            "ArrivalPlatformName": {
+             "value": "B"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:16:40.000Z",
+            "AimedArrivalTime": "2026-11-16T12:14:29.000Z",
+            "ArrivalStatus": "ON_TIME"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "KALI18"
+          }
+         ]
+        },
+        {
+         "RecordedAtTime": "2026-11-16T12:20:35.946Z",
+         "LineRef": {
+          "value": "STIF:Line::C01742:"
+         },
+         "DirectionRef": {
+          "value": "Retour"
+         },
+         "DatedVehicleJourneyRef": {
+          "value": "SNCF_MAGENTA_PRD:VehicleJourney::9d4f5342-9b84-4d5e-aaea-75e95bba00f5:LOC"
+         },
+         "VehicleMode": [
+          "RAIL"
+         ],
+         "VehicleFeatureRef": [
+          "longTrain"
+         ],
+         "RouteRef": {},
+         "PublishedLineName": [
+          {
+           "value": "A"
+          }
+         ],
+         "DirectionName": [],
+         "OriginRef": {
+          "value": "STIF:StopArea:SP:43094:"
+         },
+         "OriginName": [
+          {
+           "value": "Boissy-Saint-Léger"
+          }
+         ],
+         "DestinationRef": {
+          "value": "STIF:StopArea:SP:43104:"
+         },
+         "DestinationName": [
+          {
+           "value": "Cergy le Haut"
+          }
+         ],
+         "OperatorRef": {},
+         "ProductCategoryRef": {},
+         "JourneyNote": [
+          {
+           "value": "UZAR"
+          }
+         ],
+         "EstimatedCalls": {
+          "EstimatedCall": [
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47879:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:26:27.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Cergy le Haut"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472481:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472481:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:25:57.000Z",
+            "AimedArrivalTime": "2026-11-16T12:25:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:25:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43114:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:23:27.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Cergy le Haut"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471534:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471534:"
+             }
+            },
+            "ArrivalProximityText": {
+             "value": "A l'approche"
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:22:57.000Z",
+            "AimedArrivalTime": "2026-11-16T12:22:00.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:22:30.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:43104:"
+            },
+            "DestinationDisplay": [
+             {
+              "value": "Cergy le Haut"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:478476:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "3"
+            },
+            "ArrivalPlatformName": {
+             "value": "3"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:36:37.000Z",
+            "AimedArrivalTime": "2026-11-16T12:35:40.000Z",
+            "ArrivalStatus": "ON_TIME"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:44559:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:29:47.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Cergy le Haut"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472932:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:472932:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:29:17.000Z",
+            "AimedArrivalTime": "2026-11-16T12:28:20.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:28:50.000Z"
+           },
+           {
+            "StopPointRef": {
+             "value": "STIF:StopArea:SP:47897:"
+            },
+            "ExpectedDepartureTime": "2026-11-16T12:33:47.000Z",
+            "DestinationDisplay": [
+             {
+              "value": "Cergy le Haut"
+             }
+            ],
+            "ArrivalStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471703:"
+             }
+            },
+            "DepartureStopAssignment": {
+             "ExpectedQuayRef": {
+              "value": "STIF:StopPoint:Q:471703:"
+             }
+            },
+            "DeparturePlatformName": {
+             "value": "1"
+            },
+            "ArrivalPlatformName": {
+             "value": "1"
+            },
+            "DepartureStatus": "ON_TIME",
+            "ExpectedArrivalTime": "2026-11-16T12:33:17.000Z",
+            "AimedArrivalTime": "2026-11-16T12:32:20.000Z",
+            "ArrivalStatus": "ON_TIME",
+            "AimedDepartureTime": "2026-11-16T12:32:50.000Z"
+           }
+          ]
+         },
+         "VehicleJourneyName": [
+          {
+           "value": "UZAR73"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

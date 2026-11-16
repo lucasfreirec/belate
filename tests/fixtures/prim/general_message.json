@@ -1,0 +1,123 @@
+{
+ "Siri": {
+  "ServiceDelivery": {
+   "ResponseTimestamp": "2026-11-16T12:24:08.365Z",
+   "ProducerRef": "IVTR_HET",
+   "ResponseMessageIdentifier": "IVTR_HET:ResponseMessage:0c176b57-b562-4af9-b007-f7d10ea0eab8:LOC:",
+   "GeneralMessageDelivery": [
+    {
+     "ResponseTimestamp": "2026-11-16T12:24:08.365Z",
+     "Version": "2.0",
+     "Status": "true",
+     "InfoMessage": [
+      {
+       "FormatRef": "STIF-IDF",
+       "RecordedAtTime": "2026-09-17T14:01:40.088Z",
+       "ItemIdentifier": "RATP-SIV:Item::MSG.IVC.6558180241088568333.1:LOC",
+       "InfoMessageIdentifier": {
+        "value": "RATP-SIV:InfoMessage::MSG.IVC.6558180241088568333:LOC"
+       },
+       "InfoChannelRef": {
+        "value": "Perturbation"
+       },
+       "ValidUntilTime": "2026-11-21T03:45:00.000Z",
+       "Content": {
+        "LineRef": [
+         {
+          "value": "STIF:Line::C01743:"
+         }
+        ],
+        "Message": [
+         {
+          "MessageType": "SHORT_MESSAGE",
+          "MessageText": {
+           "value": "Du 21 novembre au 22 novembre inclus, le trafic sera interrompu entre Aulnay-sous-Bois et Mitry – Claye (travaux).\nBus de remplacement.",
+           "lang": "fr"
+          }
+         },
+         {
+          "MessageType": "TEXT_ONLY",
+          "MessageText": {
+           "value": "Du 21 novembre au 22 novembre inclus, le trafic sera interrompu entre Aulnay-sous-Bois et Mitry – Claye, en raison de travaux.\nBus de remplacement.",
+           "lang": "fr"
+          }
+         }
+        ]
+       }
+      },
+      {
+       "FormatRef": "STIF-IDF",
+       "RecordedAtTime": "2026-09-17T14:33:02.794Z",
+       "ItemIdentifier": "RATP-SIV:Item::MSG.IVC.1643157052643507715.2:LOC",
+       "InfoMessageIdentifier": {
+        "value": "RATP-SIV:InfoMessage::MSG.IVC.1643157052643507715:LOC"
+       },
+       "InfoChannelRef": {
+        "value": "Perturbation"
+       },
+       "ValidUntilTime": "2026-12-05T04:00:00.000Z",
+       "Content": {
+        "LineRef": [
+         {
+          "value": "STIF:Line::C01743:"
+         }
+        ],
+        "Message": [
+         {
+          "MessageType": "SHORT_MESSAGE",
+          "MessageText": {
+           "value": "Travaux RER B, du lundi 14 au vendredi 18 décembre inclus dès 22:45, le trafic sera interrompu entre Aulnay-sous-Bois et Aéroport Charles de Gaulle 2 – TGV (travaux). Bus de remplacement.",
+           "lang": "fr"
+          }
+         },
+         {
+          "MessageType": "TEXT_ONLY",
+          "MessageText": {
+           "value": "Travaux RER B, du lundi 14 au vendredi 18 décembre inclus dès 22:45, le trafic sera interrompu entre Aulnay-sous-Bois et Aéroport Charles de Gaulle 2 – TGV, en raison de travaux. \nBus de remplacement. Plus d'infos sur maligneb.fr",
+           "lang": "fr"
+          }
+         }
+        ]
+       }
+      },
+      {
+       "FormatRef": "STIF-IDF",
+       "RecordedAtTime": "2026-11-16T12:19:39.438Z",
+       "ItemIdentifier": "RATP-SIV:Item::MSG.IVC.1535619518168555949.1:LOC",
+       "InfoMessageIdentifier": {
+        "value": "RATP-SIV:InfoMessage::MSG.IVC.1535619518168555949:LOC"
+       },
+       "InfoChannelRef": {
+        "value": "Perturbation"
+       },
+       "ValidUntilTime": "2026-11-16T21:45:00.000Z",
+       "Content": {
+        "LineRef": [
+         {
+          "value": "STIF:Line::C01743:"
+         }
+        ],
+        "Message": [
+         {
+          "MessageType": "SHORT_MESSAGE",
+          "MessageText": {
+           "value": "Du 16 novembre au 11 décembre inclus, du lundi au vendredi dès 22:45, trafic interrompu entre Châtelet – Les Halles et Mitry – Claye • Aéroport Charles de Gaulle 2 – TGV (tvx). Bus de remplacement.",
+           "lang": "fr"
+          }
+         },
+         {
+          "MessageType": "TEXT_ONLY",
+          "MessageText": {
+           "value": "Du 16 novembre au 11 décembre inclus, du lundi au vendredi dès 22:45, le trafic sera interrompu entre Châtelet – Les Halles et Mitry – Claye  Aéroport Charles de Gaulle 2 – TGV, en raison de travaux. \nBus de remplacement.",
+           "lang": "fr"
+          }
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
