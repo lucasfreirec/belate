@@ -12,6 +12,9 @@ celery_app.conf.update(
     timezone="Europe/Paris",
     task_ignore_result=True,
     worker_hijack_root_logger=False,
+    # Parsing the global feed peaks at about 450 MB, and Python keeps most of it afterwards.
+    # A worker process above 250 MB after a task is replaced by a fresh one.
+    worker_max_memory_per_child=250_000,  # kilobytes
     # Each entry expires before its next run: a poll that could not start on time is
     # useless later, and the next one replaces it.
     beat_schedule={

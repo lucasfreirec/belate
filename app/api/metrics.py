@@ -10,7 +10,7 @@ from collections.abc import Awaitable, Callable, Iterator
 from datetime import datetime
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request, Response
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from prometheus_client import (
     CONTENT_TYPE_LATEST,
     CollectorRegistry,
@@ -173,7 +173,13 @@ def _counter(name: str, help_text: str, labels: list[str], values: dict[str, flo
 
 
 @router.get("/metrics", include_in_schema=False)
-def metrics(session: SessionDep, redis: Annotated[Redis, Depends(get_redis)]) -> Response:
+def metrics(
+    request: Request, session: SessionDep, redis: Annotated[Redis, Depends(get_redis)]
+) -> Response:
+    # Prometheus scrapes the API directly. A request carrying X-Forwarded-For came through
+    # the public proxy, which should already have blocked it: refuse it here as well.
+    if "x-forwarded-for" in request.headers:
+        raise HTTPException(status.HTTP_404_NOT_FOUND)
     collection = CollectorRegistry()
     collection.register(CollectionMetrics(redis, session))
     body = generate_latest(collection) + generate_latest(HTTP_REGISTRY)
