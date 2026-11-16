@@ -49,13 +49,13 @@ Migrations run before the workers start. Polling stops for the few seconds of th
 10 minutes old:
 
 ```
-Latest departure data: 41 s ago
-Departures: 2431 open, 1502 departed, 3 cancelled, 12 unknown
+Latest departure data: 120 s ago
+Departures: 2642 open, 44 departed, 22 cancelled, 0 unknown
 Disruptions recorded: 4
 Quota used today (UTC):
-  global         421 / 1000
-  unitary        180 / 1000
-  traffic_info   169 / 1000
+  global          16 / 1000
+  unitary          0 / 1000
+  traffic_info     3 / 1000
 ```
 
 ## No new data

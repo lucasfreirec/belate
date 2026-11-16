@@ -20,11 +20,10 @@ def main() -> int:
     now = datetime.now(UTC)
     with new_session() as session:
         latest = session.scalar(select(func.max(Departure.last_seen_at)))
-        by_outcome = dict(
-            session.execute(select(Departure.outcome, func.count()).group_by(Departure.outcome))
-            .tuples()
-            .all()
+        counts = session.execute(
+            select(Departure.outcome, func.count()).group_by(Departure.outcome)
         )
+        by_outcome = {outcome: count for outcome, count in counts}
         disruptions = session.scalar(select(func.count()).select_from(DisruptionRecord)) or 0
 
     age = None if latest is None else (now - latest).total_seconds()
