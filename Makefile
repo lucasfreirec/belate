@@ -1,6 +1,6 @@
 COMPOSE := docker compose -f deploy/compose/docker-compose.yml $(if $(wildcard .env),--env-file .env)
 
-.PHONY: setup test lint format up down
+.PHONY: setup test lint format up down stations snapshot
 
 setup: ## Install backend and frontend dependencies and the git hooks
 	uv sync
@@ -26,3 +26,9 @@ up: ## Start PostgreSQL and Redis and wait until they are healthy
 
 down: ## Stop PostgreSQL and Redis (data is kept)
 	$(COMPOSE) down
+
+stations: ## List the RER B stations and their monitoring refs (no API key needed)
+	uv run python scripts/explore_prim.py stations
+
+snapshot: ## Call each PRIM API once and save the raw responses under data/raw/ (uses quota)
+	uv run --env-file .env python scripts/explore_prim.py snapshot

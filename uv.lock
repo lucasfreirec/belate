@@ -107,11 +107,11 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
+    { name = "httpx" },
 ]
 
 [package.dev-dependencies]
 dev = [
-    { name = "httpx" },
     { name = "mypy" },
     { name = "pre-commit" },
     { name = "pytest" },
@@ -119,11 +119,13 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "fastapi", specifier = ">=0.163.1" }]
+requires-dist = [
+    { name = "fastapi", specifier = ">=0.163.1" },
+    { name = "httpx", specifier = ">=0.28.1" },
+]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "httpx", specifier = ">=0.28.1" },
     { name = "mypy", specifier = ">=2.4.1" },
     { name = "pre-commit", specifier = ">=4.7.0" },
     { name = "pytest", specifier = ">=9.2.0" },
