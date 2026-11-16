@@ -1,0 +1,95 @@
+# The collector: polls PRIM around the clock and stores the history.
+# Run on the server with `make collector-up` from the repository root. Needs a `.env` with
+# PRIM_API_KEY and POSTGRES_PASSWORD (see .env.example).
+name: belate-collector
+
+x-app: &app
+  build:
+    context: ../..
+    dockerfile: deploy/docker/Dockerfile
+  restart: unless-stopped
+  environment:
+    PRIM_API_KEY: ${PRIM_API_KEY:?set PRIM_API_KEY in .env}
+    PRIM_STATION_REF: ${PRIM_STATION_REF:-STIF:StopArea:SP:473843:}
+    DATABASE_URL: postgresql+psycopg://belate:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@postgres:5432/belate
+    REDIS_URL: redis://redis:6379/0
+
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: belate
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: belate
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U belate -d belate"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    # Keep the quota counters across restarts.
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  migrate:
+    <<: *app
+    restart: "no"
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  worker:
+    <<: *app
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  # Exactly one scheduler: two would send every poll twice.
+  beat:
+    <<: *app
+    command: ["celery", "-A", "app.worker.celery_app", "beat", "--loglevel=INFO", "--schedule=/tmp/celerybeat-schedule"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  # One compressed dump a day in ./backups on the server. Dumps older than 14 days are
+  # deleted. Copy them off the server regularly: a dump on the same disk is not a backup.
+  backup:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      PGPASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - ../../backups:/backups
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        while true; do
+          sleep 86400
+          pg_dump -h postgres -U belate belate | gzip > /backups/belate-$$(date +%F).sql.gz
+          find /backups -name 'belate-*.sql.gz' -mtime +14 -delete
+        done
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres-data:
+  redis-data:

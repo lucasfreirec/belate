@@ -103,7 +103,7 @@ def _poll_feed(
         snapshot.produced_at.isoformat(timespec="seconds"),
         stats.observed,
         stats.created,
-        dict(stats.closed),
+        {str(outcome): count for outcome, count in stats.closed.items()},
         stats.parse_errors,
     )
     return stats

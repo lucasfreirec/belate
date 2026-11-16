@@ -1,0 +1,9 @@
+# Keep the build context small and free of secrets: ignore everything, then allow what
+# the image needs.
+*
+!pyproject.toml
+!uv.lock
+!alembic.ini
+!app/
+!migrations/
+**/__pycache__/

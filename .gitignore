@@ -25,3 +25,6 @@ PLAN.md
 
 # Raw PRIM responses (large, whole network)
 data/
+
+# Database dumps written by the collector
+backups/

@@ -1,0 +1,45 @@
+"""Celery tasks: thin wrappers that build the dependencies and call `app.ingest.polling`."""
+
+from functools import lru_cache
+
+from redis import Redis
+
+from app.core.config import get_settings
+from app.core.logging import configure_logging
+from app.db.session import new_session
+from app.ingest import polling
+from app.prim.client import PrimClient, build_http_client
+from app.prim.quota import QuotaGuard
+from app.worker.celery_app import celery_app
+
+configure_logging()
+
+
+@lru_cache
+def get_guard() -> QuotaGuard:
+    redis = Redis.from_url(get_settings().redis_url, decode_responses=True)
+    return QuotaGuard(redis, polling.QUOTA_LIMITS)
+
+
+@lru_cache
+def get_client() -> PrimClient:
+    settings = get_settings()
+    api_key = settings.prim_api_key.get_secret_value()
+    if not api_key:
+        raise RuntimeError("PRIM_API_KEY is not set")
+    return PrimClient(build_http_client(settings.prim_base_url, api_key), get_guard())
+
+
+@celery_app.task
+def poll_global() -> None:
+    polling.poll_global(get_client(), get_guard(), new_session)
+
+
+@celery_app.task
+def poll_unitary() -> None:
+    polling.poll_unitary(get_client(), get_guard(), new_session, get_settings().prim_station_ref)
+
+
+@celery_app.task
+def poll_traffic_info() -> None:
+    polling.poll_traffic_info(get_client(), get_guard(), new_session)
