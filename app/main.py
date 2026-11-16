@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-app = FastAPI(title="RER B Reliability")
+app = FastAPI(title="Belate")
 
 
 @app.get("/health")

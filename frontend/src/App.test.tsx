@@ -5,5 +5,5 @@ import App from './App'
 test('shows the project title', () => {
   render(<App />)
 
-  expect(screen.getByRole('heading', { name: 'RER B Reliability' })).toBeDefined()
+  expect(screen.getByRole('heading', { name: 'Belate' })).toBeDefined()
 })

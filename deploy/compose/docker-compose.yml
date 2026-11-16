@@ -1,19 +1,19 @@
 # Local development services. Run with `make up` from the repository root.
-name: rer-b
+name: belate
 
 services:
   postgres:
     image: postgres:16
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-rerb}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rerb}
-      POSTGRES_DB: ${POSTGRES_DB:-rerb}
+      POSTGRES_USER: ${POSTGRES_USER:-belate}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-belate}
+      POSTGRES_DB: ${POSTGRES_DB:-belate}
     ports:
       - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rerb} -d ${POSTGRES_DB:-rerb}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-belate} -d ${POSTGRES_DB:-belate}"]
       interval: 5s
       timeout: 3s
       retries: 10
