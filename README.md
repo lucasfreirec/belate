@@ -10,7 +10,7 @@ Requirements: `uv`, Node.js 22, Docker.
 ```sh
 make setup   # install dependencies and git hooks
 make up      # start PostgreSQL and Redis
-make test    # backend and frontend tests
+make test    # backend and frontend tests (the integration tests start Docker containers)
 make lint    # linters and type checks
 make down    # stop PostgreSQL and Redis
 ```
