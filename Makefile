@@ -1,7 +1,7 @@
 COMPOSE := docker compose -f deploy/compose/docker-compose.yml $(if $(wildcard .env),--env-file .env)
 
 .PHONY: setup test lint format up down stations snapshot watch api web demo-data migrate worker beat status \
-	collector-up collector-down collector-status collector-logs
+	collector-up collector-down collector-status collector-logs monitoring-up monitoring-down
 
 setup: ## Install backend and frontend dependencies and the git hooks
 	uv sync
@@ -71,3 +71,11 @@ collector-status: ## Show the collector's data age and quota use
 
 collector-logs: ## Follow the collector's logs
 	$(COLLECTOR) logs -f --tail=50 worker beat
+
+MONITORING := docker compose -f deploy/compose/docker-compose.monitoring.yml
+
+monitoring-up: ## Start Prometheus (localhost:9090) and Grafana (localhost:3000, admin / admin)
+	$(MONITORING) up -d
+
+monitoring-down: ## Stop Prometheus and Grafana (their data is kept)
+	$(MONITORING) down

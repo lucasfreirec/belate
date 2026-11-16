@@ -10,6 +10,7 @@ from app.alerts.engine import evaluate
 from app.alerts.senders import Sender, WebhookSender, build_webhook_client
 from app.core.config import get_settings
 from app.core.logging import configure_logging
+from app.core.telemetry import Telemetry
 from app.db.session import new_session
 from app.ingest import polling
 from app.prim.client import PrimClient, build_http_client
@@ -21,9 +22,18 @@ logger = logging.getLogger(__name__)
 
 
 @lru_cache
+def get_redis() -> Redis:
+    return Redis.from_url(get_settings().redis_url, decode_responses=True)
+
+
+@lru_cache
 def get_guard() -> QuotaGuard:
-    redis = Redis.from_url(get_settings().redis_url, decode_responses=True)
-    return QuotaGuard(redis, polling.QUOTA_LIMITS)
+    return QuotaGuard(get_redis(), polling.QUOTA_LIMITS)
+
+
+@lru_cache
+def get_telemetry() -> Telemetry:
+    return Telemetry(get_redis())
 
 
 @lru_cache
@@ -32,22 +42,28 @@ def get_client() -> PrimClient:
     api_key = settings.prim_api_key.get_secret_value()
     if not api_key:
         raise RuntimeError("PRIM_API_KEY is not set")
-    return PrimClient(build_http_client(settings.prim_base_url, api_key), get_guard())
+    return PrimClient(
+        build_http_client(settings.prim_base_url, api_key),
+        get_guard(),
+        on_attempt=get_telemetry().prim_request,
+    )
 
 
 @celery_app.task
 def poll_global() -> None:
-    polling.poll_global(get_client(), get_guard(), new_session)
+    polling.poll_global(get_client(), get_guard(), new_session, get_telemetry())
 
 
 @celery_app.task
 def poll_unitary() -> None:
-    polling.poll_unitary(get_client(), get_guard(), new_session, get_settings().prim_station_ref)
+    polling.poll_unitary(
+        get_client(), get_guard(), new_session, get_settings().prim_station_ref, get_telemetry()
+    )
 
 
 @celery_app.task
 def poll_traffic_info() -> None:
-    polling.poll_traffic_info(get_client(), get_guard(), new_session)
+    polling.poll_traffic_info(get_client(), get_guard(), new_session, get_telemetry())
 
 
 @lru_cache

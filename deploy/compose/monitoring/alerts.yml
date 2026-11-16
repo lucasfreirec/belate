@@ -1,0 +1,47 @@
+# Alert rules. They show as pending or firing on the Alerts page of Prometheus.
+groups:
+  - name: belate
+    rules:
+      - alert: IngestionStale
+        # The global feed is polled every 2 minutes; 10 minutes means 5 polls were missed.
+        expr: time() - belate_last_successful_poll_timestamp_seconds{api="global"} > 600
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: No departure data stored for more than 10 minutes
+          description: >-
+            The last successful global poll was {{ $value | humanizeDuration }} ago. Check
+            that the worker and the scheduler are running, then the collector logs.
+
+      - alert: CollectorSilent
+        # No value at all: the collector never stored anything, or the API cannot read Redis.
+        expr: absent(belate_last_successful_poll_timestamp_seconds{api="global"})
+        for: 15m
+        labels:
+          severity: critical
+        annotations:
+          summary: The collector reports nothing
+          description: The API exports no successful poll. Check the API, Redis and the workers.
+
+      - alert: QuotaNearlyUsed
+        expr: belate_quota_used / belate_quota_limit > 0.9
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: 'PRIM quota of the {{ $labels.api }} API is over 90% used'
+          description: >-
+            Polling stops when the quota is used up and resumes at midnight UTC. Check that
+            no other program uses the same API key.
+
+      - alert: PrimFailing
+        expr: >-
+          sum(rate(belate_prim_requests_total{outcome!="200"}[15m]))
+          / sum(rate(belate_prim_requests_total[15m])) > 0.5
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: More than half of the requests to PRIM are failing
+          description: PRIM may be down. Polling retries by itself; nothing to do unless it lasts.

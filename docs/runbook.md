@@ -58,6 +58,20 @@ Quota used today (UTC):
   traffic_info     3 / 1000
 ```
 
+## Alerts
+
+Prometheus shows these on its Alerts page. What to do for each:
+
+- **IngestionStale**: no global poll has stored data for 10 minutes. Follow "No new data"
+  below.
+- **CollectorSilent**: the API exports no poll at all. Either nothing was ever collected, or
+  the API cannot reach Redis. Check that Redis and the API are running.
+- **QuotaNearlyUsed**: an API's daily quota is over 90% used. Polling stops at the limit and
+  resumes at midnight UTC. Look for another program using the same API key, and for
+  `TooSoon` or repeated retries on the dashboard.
+- **PrimFailing**: most requests to PRIM fail. Usually PRIM itself; polling retries on its
+  own. If it lasts, check the key and the PRIM status page.
+
 ## No new data
 
 1. `make collector-logs`. A line such as `global poll skipped: PrimUnavailable` means PRIM

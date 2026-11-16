@@ -10,6 +10,7 @@ from datetime import UTC, datetime
 
 from sqlalchemy.orm import Session
 
+from app.core.telemetry import Telemetry
 from app.ingest.service import IngestStats, ingest_disruptions, ingest_snapshot
 from app.prim.client import PrimClient, PrimError, PrimResponse
 from app.prim.models import Api, FeedSnapshot
@@ -36,15 +37,27 @@ QUOTA_LIMITS = {
 
 
 def poll_global(
-    client: PrimClient, guard: QuotaGuard, sessions: SessionFactory
+    client: PrimClient,
+    guard: QuotaGuard,
+    sessions: SessionFactory,
+    telemetry: Telemetry | None = None,
 ) -> IngestStats | None:
     return _poll_feed(
-        Api.GLOBAL, client.estimated_timetable, parse_estimated_timetable, guard, sessions
+        Api.GLOBAL,
+        client.estimated_timetable,
+        parse_estimated_timetable,
+        guard,
+        sessions,
+        telemetry,
     )
 
 
 def poll_unitary(
-    client: PrimClient, guard: QuotaGuard, sessions: SessionFactory, station_ref: str
+    client: PrimClient,
+    guard: QuotaGuard,
+    sessions: SessionFactory,
+    station_ref: str,
+    telemetry: Telemetry | None = None,
 ) -> IngestStats | None:
     return _poll_feed(
         Api.UNITARY,
@@ -52,11 +65,15 @@ def poll_unitary(
         parse_stop_monitoring,
         guard,
         sessions,
+        telemetry,
     )
 
 
 def poll_traffic_info(
-    client: PrimClient, guard: QuotaGuard, sessions: SessionFactory
+    client: PrimClient,
+    guard: QuotaGuard,
+    sessions: SessionFactory,
+    telemetry: Telemetry | None = None,
 ) -> int | None:
     """Store the current RER B disruptions. Return how many there are, None on failure."""
     try:
@@ -65,11 +82,18 @@ def poll_traffic_info(
         disruptions, errors = parse_traffic_info(response.body)
     except EXPECTED_FAILURES as exc:
         logger.warning("traffic_info poll skipped: %s: %s", type(exc).__name__, exc)
+        if telemetry:
+            telemetry.poll_skipped(Api.TRAFFIC_INFO, type(exc).__name__)
         return None
 
+    now = datetime.now(UTC)
     with sessions() as session:
-        created = ingest_disruptions(session, disruptions, datetime.now(UTC))
+        created = ingest_disruptions(session, disruptions, now)
         session.commit()
+    if telemetry:
+        telemetry.poll_succeeded(
+            Api.TRAFFIC_INFO, now, created=0, updated=0, parse_errors=len(errors)
+        )
     logger.info(
         "traffic_info poll: %d disruptions, %d new, %d parse errors",
         len(disruptions),
@@ -85,6 +109,7 @@ def _poll_feed(
     parse: Callable[[object], FeedSnapshot],
     guard: QuotaGuard,
     sessions: SessionFactory,
+    telemetry: Telemetry | None,
 ) -> IngestStats | None:
     try:
         response = fetch()
@@ -92,11 +117,23 @@ def _poll_feed(
         snapshot = parse(response.body)
     except EXPECTED_FAILURES as exc:
         logger.warning("%s poll skipped: %s: %s", api, type(exc).__name__, exc)
+        if telemetry:
+            telemetry.poll_skipped(api, type(exc).__name__)
         return None
 
     with sessions() as session:
         stats = ingest_snapshot(session, snapshot)
         session.commit()
+    if telemetry:
+        telemetry.poll_succeeded(
+            api,
+            datetime.now(UTC),
+            created=stats.created,
+            updated=stats.observed - stats.created,
+            parse_errors=stats.parse_errors,
+        )
+        for outcome, count in stats.closed.items():
+            telemetry.departures_closed(str(outcome), count)
     logger.info(
         "%s poll: feed of %s, %d departures, %d new, closed %s, %d parse errors",
         api,

@@ -47,10 +47,13 @@ class PrimClient:
         gate: RequestGate,
         *,
         sleep: Callable[[float], None] = time.sleep,
+        on_attempt: Callable[[Api, str], None] | None = None,
     ) -> None:
         self._http = http
         self._gate = gate
         self._sleep = sleep
+        # Called after every HTTP attempt with its outcome: a status code or an error name.
+        self._on_attempt = on_attempt
 
     def estimated_timetable(self) -> PrimResponse:
         """Next departures for the whole network (global query)."""
@@ -75,7 +78,9 @@ class PrimClient:
                 response = self._http.get(path, params=params)
             except httpx.TransportError as exc:
                 failure = type(exc).__name__
+                self._report(api, failure)
             else:
+                self._report(api, str(response.status_code))
                 if response.status_code == 200:
                     return PrimResponse(_json(response, api), _quota_remaining(response))
                 failure = f"HTTP {response.status_code}"
@@ -83,6 +88,10 @@ class PrimClient:
                     raise PrimError(f"{api} request refused: {failure}")
             logger.warning("PRIM %s attempt %d failed: %s", api, attempt + 1, failure)
         raise PrimUnavailable(f"{api} failed {MAX_ATTEMPTS} times, last error: {failure}")
+
+    def _report(self, api: Api, outcome: str) -> None:
+        if self._on_attempt is not None:
+            self._on_attempt(api, outcome)
 
 
 def build_http_client(base_url: str, api_key: str) -> httpx.Client:

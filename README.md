@@ -72,6 +72,29 @@ make demo-data
 DATABASE_URL=postgresql+psycopg://belate:belate@localhost:5432/belate_bench make api
 ```
 
+## Monitoring
+
+The API exports Prometheus metrics at `/metrics`: requests to PRIM by outcome, quota used
+per API, time of the last successful poll, departures stored and closed, parse errors, and
+the API's own request count and response times. The workers run as several processes, so
+their counters are kept in Redis and read back by the API at each scrape.
+
+```sh
+make api              # the API, which Prometheus scrapes
+make monitoring-up    # Prometheus on localhost:9090, Grafana on localhost:3000 (admin / admin)
+```
+
+Grafana opens on a dashboard with the collector's health, quota use and API traffic.
+Prometheus evaluates four alert rules (`deploy/compose/monitoring/alerts.yml`), visible on
+its Alerts page:
+
+| Alert | Fires when |
+|---|---|
+| `IngestionStale` | no global poll stored data for more than 10 minutes |
+| `CollectorSilent` | the collector reports nothing at all for 15 minutes |
+| `QuotaNearlyUsed` | an API's daily quota is over 90% used |
+| `PrimFailing` | more than half of the requests to PRIM fail for 10 minutes |
+
 ## Development
 
 Requirements: `uv`, Node.js 22, Docker.
