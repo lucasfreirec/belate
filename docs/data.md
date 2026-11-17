@@ -199,7 +199,7 @@ are needed, is a table of pre-aggregated hourly figures.
 | API | Schedule | Requests per day | Quota |
 |---|---|---|---|
 | Global | every 2 minutes, at second 20 of each even minute, around the clock | 720 | 1,000 |
-| Unitary (my station) | every minute, 07:00–10:00 and 17:00–20:00 Paris time | 360 | 1,000 |
+| Unitary (chosen station) | every minute, 07:00–10:00 and 17:00–20:00 Paris time | 360 | 1,000 |
 | Traffic info | every 5 minutes, around the clock | 288 | 1,000 |
 | Screen messages | not polled | 0 | 1,000 |
 
@@ -215,7 +215,7 @@ run stored 2,708 departures from three consecutive polls, in line with that.
 
 **Precision.** The last prediction for a departure is seen at most about 2 minutes before the
 train leaves, since calls stay in the feed until after their expected time. The unitary feed
-at my station, polled every minute with data at most 20 seconds old, is the reference to
+at the chosen station, polled every minute with data at most 20 seconds old, is the reference to
 measure the error of the global-only data.
 
 ## Open questions

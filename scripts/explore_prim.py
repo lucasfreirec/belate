@@ -1,4 +1,4 @@
-"""Exploration script for M1 (data discovery).
+"""Exploration script for discovering what the PRIM data contains.
 
 Three commands:
 

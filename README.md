@@ -5,11 +5,9 @@ real-time data, around the clock, and shows its punctuality by branch, station a
 where trains lose time, how many are cancelled, and alerts you when your commute is
 disrupted.
 
-Built with Python (FastAPI, Celery, SQLAlchemy), PostgreSQL, Redis, React and TypeScript,
-packaged in Docker, deployed on Kubernetes (k3s) by GitHub Actions, and monitored with
-Prometheus and Grafana.
-
-**Live site:** not deployed yet.
+Built with Python (FastAPI, Celery, SQLAlchemy), PostgreSQL, Redis, React and TypeScript.
+Packaged in Docker, with Kubernetes manifests (k3s) and a GitHub Actions release pipeline,
+and monitored with Prometheus and Grafana.
 
 ## Architecture
 
@@ -49,7 +47,7 @@ A scheduler triggers three polling tasks against the Île-de-France Mobilités P
 | What | How often | Why |
 |---|---|---|
 | Next departures for the whole network | every 2 minutes | every RER B train at every station |
-| Next departures at one station | every minute at commute hours | fresher data where I wait |
+| Next departures at one station | every minute at commute hours | fresher data at one chosen station |
 | Traffic info | every 5 minutes | disruptions |
 
 Each train at each station becomes one row in PostgreSQL, updated at every poll until the
@@ -57,7 +55,54 @@ train has left, was cancelled, or disappeared. A quota guard in Redis keeps ever
 its limit of 1,000 requests a day.
 
 - [docs/data.md](docs/data.md): what the PRIM data contains, and the definitions used.
-- [docs/runbook.md](docs/runbook.md): how to deploy and look after the collector.
+- [docs/runbook.md](docs/runbook.md): how to deploy and operate it.
+
+## Running it
+
+Three ways, from the lightest to the closest to production. All read `.env` (copy
+`.env.example`; `PRIM_API_KEY` is the only value you must add).
+
+**Development**: the code runs on your machine, PostgreSQL and Redis in Docker. See
+[Development](#development) below.
+
+**Everything in Docker Compose**:
+
+```sh
+make stack-up     # builds the images, migrates, starts the 10 containers
+```
+
+The frontend is on http://localhost:8080 and the API behind it under `/api` (documentation
+at `/api/docs`). Grafana is on http://localhost:3001 and Prometheus on http://localhost:9091.
+`make stack-down` stops it and keeps the data.
+
+**Kubernetes on minikube**:
+
+```sh
+make k8s-up       # starts minikube, builds and loads the images, creates the secrets, deploys
+make k8s-open     # frontend on localhost:8081, Grafana on 3002, Prometheus on 9092
+make k8s-status   # pods, data age, quota used
+make k8s-down     # stops minikube; everything in it is kept
+```
+
+The manifests are in `deploy/k8s/`: a Kustomize base, a `dev` overlay for minikube and a
+`prod` overlay for the server. Secrets are created from `.env` by
+`deploy/k8s/create-secrets.sh` and never stored in the repository.
+
+How the pieces fit:
+
+- **One application image** (`deploy/docker/Dockerfile`) runs the API, the workers, the
+  scheduler and the migrations; the command chooses the role. A **web image**
+  (`deploy/docker/web.Dockerfile`) serves the built frontend with nginx and forwards `/api`
+  to the API. Both run as a regular user.
+- **Only the web container is published.** nginx blocks `/api/metrics`; Prometheus scrapes
+  the API directly inside the network. nginx passes the client's address to the API, which
+  rate-limits on it.
+- **Two workers, one scheduler.** Polling goes on while a worker restarts. Each worker runs
+  one task at a time: parsing the global feed takes about 450 MB.
+- **Every application pod migrates the database before it starts**, under a PostgreSQL lock,
+  so pods starting together take turns.
+- **A nightly dump** of the database goes to its own volume, kept 14 days.
+  `deploy/k8s/backup.sh` takes one on demand, lists them and restores one.
 
 ## API
 
@@ -134,53 +179,6 @@ its Alerts page:
 | `QuotaNearlyUsed` | an API's daily quota is over 90% used |
 | `PrimFailing` | more than half of the requests to PRIM fail for 10 minutes |
 
-## Running it
-
-Three ways, from the lightest to the closest to production. All read `.env` (copy
-`.env.example`; `PRIM_API_KEY` is the only value you must add).
-
-**Development**: the code runs on your machine, PostgreSQL and Redis in Docker. See
-[Development](#development) below.
-
-**Everything in Docker Compose**:
-
-```sh
-make stack-up     # builds the images, migrates, starts the 10 containers
-```
-
-The frontend is on http://localhost:8080 and the API behind it under `/api` (documentation
-at `/api/docs`). Grafana is on http://localhost:3001 and Prometheus on http://localhost:9091.
-`make stack-down` stops it and keeps the data.
-
-**Kubernetes on minikube**:
-
-```sh
-make k8s-up       # starts minikube, builds and loads the images, creates the secrets, deploys
-make k8s-open     # frontend on localhost:8081, Grafana on 3002, Prometheus on 9092
-make k8s-status   # pods, data age, quota used
-make k8s-down     # stops minikube; everything in it is kept
-```
-
-The manifests are in `deploy/k8s/`: a Kustomize base, a `dev` overlay for minikube and a
-`prod` overlay for the server. Secrets are created from `.env` by
-`deploy/k8s/create-secrets.sh` and never stored in the repository.
-
-How the pieces fit:
-
-- **One application image** (`deploy/docker/Dockerfile`) runs the API, the workers, the
-  scheduler and the migrations; the command chooses the role. A **web image**
-  (`deploy/docker/web.Dockerfile`) serves the built frontend with nginx and forwards `/api`
-  to the API. Both run as a regular user.
-- **Only the web container is published.** nginx blocks `/api/metrics`; Prometheus scrapes
-  the API directly inside the network. nginx passes the client's address to the API, which
-  rate-limits on it.
-- **Two workers, one scheduler.** Polling goes on while a worker restarts. Each worker runs
-  one task at a time: parsing the global feed takes about 450 MB.
-- **Every application pod migrates the database before it starts**, under a PostgreSQL lock,
-  so pods starting together take turns.
-- **A nightly dump** of the database goes to its own volume, kept 14 days.
-  `deploy/k8s/backup.sh` takes one on demand, lists them and restores one.
-
 ## Development
 
 Requirements: `uv`, Node.js 22, Docker.
@@ -192,6 +190,9 @@ make test    # backend and frontend tests (the integration tests start Docker co
 make lint    # linters and type checks
 make down    # stop PostgreSQL and Redis
 ```
+
+The backend is type-checked with mypy in strict mode, and its integration tests run against
+real PostgreSQL and Redis instances started in containers.
 
 Copy `.env.example` to `.env` and add a PRIM API key to poll the real APIs:
 
@@ -219,13 +220,3 @@ the [PRIM](https://prim.iledefrance-mobilites.fr/) portal, under the
 [Licence Mobilités](https://prim.iledefrance-mobilites.fr/en/licences) (based on ODbL).
 Station reference data from the IDFM open data portal. `tests/fixtures/prim/` holds a few
 recorded PRIM responses, kept as they were received, so that the tests never call the API.
-
-## What I would do next
-
-- Pre-aggregate hourly figures, so that views over 30 days and more stay fast.
-- Stream the 58 MB global response instead of loading it whole, to cut a worker's memory
-  from about 450 MB to a few tens.
-- Follow trains past the end of a feed version, to explain the departures that disappear
-  early (counted as "unknown" today).
-- Add the other RER lines: the global query already returns them, at no extra quota.
-

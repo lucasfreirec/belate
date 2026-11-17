@@ -1,7 +1,7 @@
 """Departure lifecycle: from repeated observations to one final row per departure.
 
 The same train at the same station is seen in every poll until it leaves: about 100 times in
-the global feed, plus once a minute in the unitary feed at my station. These two functions
+the global feed, plus once a minute in the unitary feed at the chosen station. These two functions
 turn that stream into one `Departure` row, and decide what finally became of it.
 
 Both are pure: they take objects and return a result, with no database and no clock of their

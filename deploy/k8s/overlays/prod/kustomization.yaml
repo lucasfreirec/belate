@@ -1,5 +1,5 @@
-# The cloud server (k3s). The image tags are set by the release workflow (M8); the host name
-# and HTTPS in ingress.yaml are completed then too.
+# The cloud server (k3s). deploy/k8s/render-release.sh sets the image tags and the host
+# name for each release, on top of this overlay.
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
