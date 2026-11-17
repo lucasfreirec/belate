@@ -1,3 +1,5 @@
+![An RER B train on the line south of Paris](docs/images/banner.jpg)
+
 # Belate
 
 How late is the RER B, really? Belate records every train of Paris's RER B line from
