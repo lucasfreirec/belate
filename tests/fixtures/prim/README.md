@@ -21,3 +21,6 @@ must handle:
 - 1 RER A journey, which the RER B filter must drop
 
 See `docs/data.md` for the meaning of the fields.
+
+The data belongs to Île-de-France Mobilités and is published under the Licence Mobilités
+(based on ODbL): see "Data and licence" in the main README.

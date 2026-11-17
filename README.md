@@ -1,7 +1,46 @@
 # Belate
 
-Collects real-time data for the RER B (Paris), stores the history and reports on punctuality,
-cancellations and disruptions. Work in progress.
+How late is the RER B, really? Belate records every train of Paris's RER B line from
+real-time data, around the clock, and shows its punctuality by branch, station and hour,
+where trains lose time, how many are cancelled, and alerts you when your commute is
+disrupted.
+
+Built with Python (FastAPI, Celery, SQLAlchemy), PostgreSQL, Redis, React and TypeScript,
+packaged in Docker, deployed on Kubernetes (k3s) by GitHub Actions, and monitored with
+Prometheus and Grafana.
+
+**Live site:** not deployed yet.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    PRIM["PRIM APIs<br/>(Île-de-France Mobilités)"]
+    subgraph cluster["Kubernetes (k3s)"]
+        beat["Scheduler<br/>Celery beat"]
+        worker["Workers ×2<br/>Celery"]
+        redis[("Redis<br/>queue, quota")]
+        db[("PostgreSQL")]
+        api["API<br/>FastAPI"]
+        web["Web<br/>nginx + React"]
+        prom["Prometheus"]
+        graf["Grafana"]
+    end
+    user(["Browser"])
+    hook(["Your webhook"])
+
+    beat -- tasks --> redis --> worker
+    worker -- "polls, within the quota" --> PRIM
+    worker -- departures --> db
+    worker -- "commute alerts" --> hook
+    user -- HTTPS --> web -- "/api" --> api
+    api --> db
+    prom -- "/metrics" --> api
+    graf --> prom
+```
+
+Only the web container is reachable from the internet; it serves the frontend and forwards
+`/api` to the API. Prometheus and Grafana stay inside the cluster.
 
 ## How it works
 
@@ -164,3 +203,29 @@ make status    # data age and quota used today
 ```
 
 Never commit `.env`.
+
+## Deployment
+
+A version tag (`git tag v0.1.0 && git push origin v0.1.0`) runs the release workflow: the
+tests, then both images built for x86 and ARM and pushed to GitHub's registry, then the
+manifests applied on the server over SSH and a check of the live site. Rolling back is the
+same workflow run with an earlier tag. Setting up the server, secrets and HTTPS is described
+in [docs/runbook.md](docs/runbook.md).
+
+## Data and licence
+
+Real-time data from [Île-de-France Mobilités](https://www.iledefrance-mobilites.fr/) through
+the [PRIM](https://prim.iledefrance-mobilites.fr/) portal, under the
+[Licence Mobilités](https://prim.iledefrance-mobilites.fr/en/licences) (based on ODbL).
+Station reference data from the IDFM open data portal. `tests/fixtures/prim/` holds a few
+recorded PRIM responses, kept as they were received, so that the tests never call the API.
+
+## What I would do next
+
+- Pre-aggregate hourly figures, so that views over 30 days and more stay fast.
+- Stream the 58 MB global response instead of loading it whole, to cut a worker's memory
+  from about 450 MB to a few tens.
+- Follow trains past the end of a feed version, to explain the departures that disappear
+  early (counted as "unknown" today).
+- Add the other RER lines: the global query already returns them, at no extra quota.
+
