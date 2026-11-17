@@ -1,0 +1,122 @@
+# Release: on a version tag, check, build and publish both images, then deploy them.
+#
+#   git tag v0.1.0 && git push origin v0.1.0
+#
+# To roll back, run this workflow by hand ("Run workflow") with an earlier tag: it deploys
+# the images already published for that tag. See docs/runbook.md, "Release and roll back".
+#
+# The deploy job needs, in the repository settings:
+#   variables  DEPLOY_HOST         server address, for SSH
+#              PUBLIC_HOST         host name of the site (belate.example.org)
+#   secrets    DEPLOY_SSH_KEY      private key of the server's `deploy` user
+#              DEPLOY_KNOWN_HOSTS  the server's line from `ssh-keyscan SERVER`
+# Without DEPLOY_HOST the images are still published and the deploy job is skipped.
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to deploy, already published (v0.1.0)
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ inputs.tag || github.ref_name }}
+
+jobs:
+  checks:
+    # A rollback redeploys images that were checked when they were released.
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/ci.yml
+
+  images:
+    needs: checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - image: belate-app
+            dockerfile: deploy/docker/Dockerfile
+          - image: belate-web
+            dockerfile: deploy/docker/web.Dockerfile
+    steps:
+      - uses: actions/checkout@v4
+      # Both architectures, so the server can be an ARM machine as well as an x86 one.
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ghcr.io/lucasfreirec/${{ matrix.image }}:${{ env.TAG }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ env.TAG }}
+          cache-from: type=gha,scope=${{ matrix.image }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.image }}
+
+  deploy:
+    needs: images
+    # Runs after a release, or alone for a rollback.
+    if: >-
+      always() && vars.DEPLOY_HOST != '' &&
+      (needs.images.result == 'success' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://${{ vars.PUBLIC_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The manifests of the version being deployed.
+          ref: ${{ env.TAG }}
+      - name: Set up SSH
+        env:
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Apply the manifests
+        env:
+          SERVER: deploy@${{ vars.DEPLOY_HOST }}
+          PUBLIC_HOST: ${{ vars.PUBLIC_HOST }}
+        run: |
+          deploy/k8s/render-release.sh "$TAG" "$PUBLIC_HOST" |
+            ssh -i ~/.ssh/id_deploy "$SERVER" kubectl apply -f -
+      - name: Wait for the new version
+        env:
+          SERVER: deploy@${{ vars.DEPLOY_HOST }}
+        run: |
+          for name in api worker beat web; do
+            ssh -i ~/.ssh/id_deploy "$SERVER" \
+              kubectl -n belate rollout status "deployment/$name" --timeout=10m
+          done
+      - name: Check the public site
+        env:
+          PUBLIC_HOST: ${{ vars.PUBLIC_HOST }}
+        run: |
+          curl --fail --silent --show-error --retry 5 --retry-delay 10 --retry-all-errors \
+            "https://$PUBLIC_HOST/api/ready"

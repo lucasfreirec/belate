@@ -28,3 +28,6 @@ data/
 
 # Database dumps written by the collector
 backups/
+
+# Throwaway overlays written by deploy/k8s/render-release.sh
+deploy/k8s/overlays/.release-*/

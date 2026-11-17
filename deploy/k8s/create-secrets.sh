@@ -6,7 +6,9 @@
 #
 # Reads PRIM_API_KEY and POSTGRES_PASSWORD (required), API_TOKEN (optional: without it the
 # subscription endpoints are closed) and GRAFANA_PASSWORD (default "admin", for local use
-# only). Set KUBECTL to choose the cluster, for example KUBECTL="kubectl --context minikube".
+# only). Set KUBECTL to choose the cluster, for example KUBECTL="kubectl --context minikube",
+# or KUBECTL="ssh deploy@SERVER kubectl" for the server. The secrets are built on this machine
+# and sent on standard input, never on a command line.
 set -euo pipefail
 
 env_file=${1:-.env}
@@ -53,12 +55,13 @@ umask 077
 
 apply_secret() {
   local name=$1 file=$2
-  "${kubectl[@]}" -n "$namespace" create secret generic "$name" \
+  # Built by the local kubectl (no cluster needed), applied by the chosen one.
+  kubectl -n "$namespace" create secret generic "$name" \
     --from-env-file="$file" --dry-run=client -o yaml | "${kubectl[@]}" apply -f - >/dev/null
   echo "secret/$name updated"
 }
 
-"${kubectl[@]}" apply -f "$(dirname "$0")/base/namespace.yaml" >/dev/null
+"${kubectl[@]}" apply -f - >/dev/null < "$(dirname "$0")/base/namespace.yaml"
 
 {
   echo "PRIM_API_KEY=$prim_api_key"
